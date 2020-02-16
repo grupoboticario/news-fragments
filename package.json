@@ -1,0 +1,48 @@
+{
+  "name": "@grupoboticario/news-fragments",
+  "version": "0.0.1",
+  "description": "A release-it plugin to manipulate changelogs",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava test.js --verbose",
+    "lint": "eslint \"**/*.js\" --ignore-pattern node_modules/",
+    "release": "release-it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grupoboticario/news-fragments.git"
+  },
+  "keywords": [
+    "release",
+    "release-it",
+    "release-it-plugin",
+    "changelog",
+    "grupoboticario"
+  ],
+  "author": "Grupo Boticário",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grupoboticario/news-fragments/issues"
+  },
+  "homepage": "https://github.com/grupoboticario/news-fragments#readme",
+  "devDependencies": {
+    "ava": "^3.3.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "mock-fs": "^4.10.4",
+    "prettier": "^1.19.1",
+    "sinon": "^8.1.1"
+  },
+  "dependencies": {
+    "release-it": "^12.4.3"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "release-it": {
+    "hooks": {
+      "before:init": "npm test"
+    }
+  }
+}

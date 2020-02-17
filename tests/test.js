@@ -1,6 +1,6 @@
 const { factory, runTasks } = require("release-it/test/util");
 const test = require("ava");
-const Plugin = require(".");
+const Plugin = require("..");
 
 const namespace = "newsfragments";
 

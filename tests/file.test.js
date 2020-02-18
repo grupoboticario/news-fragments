@@ -3,10 +3,9 @@ const {
   getFragmentsContent
 } = require("../src/file");
 
-const test = require("ava");
 const mockFs = require("mock-fs");
 
-test.before(_ => {
+beforeEach(() => {
   mockFs({
     "fragments/test.bugfix": "fake bugfix content",
     "fragments/test.feature": "fake feature content",
@@ -14,31 +13,37 @@ test.before(_ => {
   });
 });
 
-test.afterEach("cleanup", _ => {
+afterEach(() => {
   mockFs.restore();
 });
 
-test("should return a list of fragment files based on fragment type", async t => {
+test("should return a list of fragment files based on fragment type", async () => {
   bugfix = getFragmentsFilesByFragmentType("fragments", "bugfix");
   feature = getFragmentsFilesByFragmentType("fragments", "feature");
 
-  t.deepEqual(bugfix, ["fragments/test.bugfix"]);
-  t.deepEqual(feature, ["fragments/test.feature", "fragments/test2.feature"]);
+  expect(bugfix).toEqual(["fragments/test.bugfix"]);
+  expect(feature).toEqual([
+    "fragments/test.feature",
+    "fragments/test2.feature"
+  ]);
 });
 
-test("should return an empty list when no fragments found", async t => {
+test("should return an empty list when no fragments found", async () => {
   misc = getFragmentsFilesByFragmentType("fragments", "misc");
 
-  t.deepEqual(misc, []);
+  expect(misc).toEqual([]);
 });
 
-test("should return a list of fragment data", async t => {
+test("should return a list of fragment data", async () => {
   bugfix = getFragmentsFilesByFragmentType("fragments", "bugfix");
   feature = getFragmentsFilesByFragmentType("fragments", "feature");
 
   bugfixData = getFragmentsContent(bugfix);
   featureData = getFragmentsContent(feature);
 
-  t.deepEqual(bugfixData, ["fake bugfix content"]);
-  t.deepEqual(featureData, ["fake feature content", "fake 2 feature content"]);
+  expect(bugfixData).toEqual(["fake bugfix content"]);
+  expect(featureData).toEqual([
+    "fake feature content",
+    "fake 2 feature content"
+  ]);
 });

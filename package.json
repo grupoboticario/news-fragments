@@ -4,7 +4,7 @@
   "description": "A release-it plugin to manipulate changelogs",
   "main": "src/index.js",
   "scripts": {
-    "test": "ava --verbose",
+    "test": "jest --runInBand --verbose",
     "lint": "eslint \"**/*.js\" --ignore-pattern node_modules/",
     "release": "release-it"
   },
@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/grupoboticario/news-fragments#readme",
   "devDependencies": {
-    "ava": "^3.3.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",

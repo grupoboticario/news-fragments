@@ -21,3 +21,11 @@ module.exports.getFragmentsContent = function(fragmentsFiles) {
     return fs.readFileSync(file, "utf8");
   });
 };
+
+module.exports.delFragmentsFiles = function(fragmentsFolder) {
+  let dir = fs.readdirSync(fragmentsFolder);
+
+  dir.forEach(file => {
+    fs.unlinkSync(path.join(fragmentsFolder, file));
+  });
+};

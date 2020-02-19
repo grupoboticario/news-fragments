@@ -52,6 +52,11 @@ test("should return a list of fragment data", async () => {
 });
 
 test("should delete fragment files", async () => {
-  deleteFragmentsFiles("fragments");
+  bugfix = getFragmentsFilesByFragmentType("fragments", "bugfix");
+  feature = getFragmentsFilesByFragmentType("fragments", "feature");
+
+  deleteFragmentsFiles(bugfix);
+  deleteFragmentsFiles(feature);
+
   expect(fs.readdirSync("fragments")).toStrictEqual([".gitkeep"]);
 });

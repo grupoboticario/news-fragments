@@ -22,8 +22,10 @@ module.exports.getFragmentsContent = function(fragmentsFiles) {
   });
 };
 
-module.exports.delFragmentsFiles = function(fragmentsFolder) {
-  let dir = fs.readdirSync(fragmentsFolder);
+module.exports.deleteFragmentsFiles = function(fragmentsFolder) {
+  let dir = fs
+    .readdirSync(fragmentsFolder)
+    .filter(item => !/(^|\/)\.[^\/\.]/g.test(item));
 
   dir.forEach(file => {
     fs.unlinkSync(path.join(fragmentsFolder, file));

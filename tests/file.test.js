@@ -1,7 +1,7 @@
 const {
   getFragmentsFilesByFragmentType,
   getFragmentsContent,
-  delFragmentsFiles
+  deleteFragmentsFiles
 } = require("../src/file");
 
 const fs = require("fs");
@@ -9,6 +9,7 @@ const mockFs = require("mock-fs");
 
 beforeEach(() => {
   mockFs({
+    "fragments/.gitkeep": "",
     "fragments/test.bugfix": "fake bugfix content",
     "fragments/test.feature": "fake feature content",
     "fragments/test2.feature": "fake 2 feature content"
@@ -51,6 +52,6 @@ test("should return a list of fragment data", async () => {
 });
 
 test("should delete fragment files", async () => {
-  delFragmentsFiles("fragments");
-  expect(fs.readdirSync("fragments")).toStrictEqual([]);
+  deleteFragmentsFiles("fragments");
+  expect(fs.readdirSync("fragments")).toStrictEqual([".gitkeep"]);
 });

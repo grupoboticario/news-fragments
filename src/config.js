@@ -15,13 +15,13 @@ const schema = Joi.object({
     .required()
 });
 
-const changelogTemplate = `# [newVersion] - (bumpDate)
-{{#each fragments}}
-## {fragment.title}
-  {{#each fragmentEntries}}
-    * {fragment}
-  {{/each}}
-{{/each}}
+const changelogTemplate = `# [{{newVersion}}] - ({{bumpDate}})
+{{#fragments}}
+## {{title}}
+{{#fragmentEntries}}
+* {{fragment}}
+{{/fragmentEntries}}
+{{/fragments}}
 `;
 
 const baseConfig = {

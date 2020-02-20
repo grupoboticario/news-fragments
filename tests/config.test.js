@@ -6,13 +6,13 @@ test("should return a base config", async () => {
   expect(config.changelogFile).toBe("CHANGELOG.md");
   expect(config.changelogDateFormat).toBe("YYYY-MM-DD");
   expect(config.fragmentsFolder).toBe("fragments");
-  expect(config.changelogTemplate).toBe(`# [newVersion] - (bumpDate)
-{{#each fragments}}
-## {fragment.title}
-  {{#each fragmentEntries}}
-    * {fragment}
-  {{/each}}
-{{/each}}
+  expect(config.changelogTemplate).toBe(`# [{{newVersion}}] - ({{bumpDate}})
+{{#fragments}}
+## {{title}}
+{{#fragmentEntries}}
+* {{fragment}}
+{{/fragmentEntries}}
+{{/fragments}}
 `);
   expect(config.fragmentsTypes).toEqual([
     { title: "Features", extension: "feature" },

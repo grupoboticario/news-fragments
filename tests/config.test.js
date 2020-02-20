@@ -1,4 +1,4 @@
-const { buildConfig, getBaseConfig } = require("../src/config");
+const { buildConfig } = require("../src/config");
 
 test("should return a base config", async () => {
   config = buildConfig({});

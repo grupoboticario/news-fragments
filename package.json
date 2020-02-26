@@ -4,7 +4,7 @@
   "description": "A release-it plugin to manipulate changelogs",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest --runInBand --verbose",
+    "test": "jest --collectCoverage --runInBand --verbose",
     "lint": "eslint \"**/*.js\" --ignore-pattern node_modules/",
     "release": "release-it"
   },

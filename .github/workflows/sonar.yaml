@@ -34,10 +34,10 @@ jobs:
       run: |
         npm run test
 
-    - name: Sonar absolute path to relative path
-      run: |
-        sed -i 's|SF:/home/runner/work/news-fragments/news-fragments/|SF:|g' coverage/lcov.info
-        cat coverage/lcov.info
+    # - name: Sonar absolute path to relative path
+    #   run: |
+    #     sed -i 's|SF:/home/runner/work/news-fragments/news-fragments/|SF:|g' coverage/lcov.info
+    #     cat coverage/lcov.info
 
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master

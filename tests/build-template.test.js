@@ -10,7 +10,7 @@ const mockFs = require("mock-fs");
 let changelogTemplate;
 let changelogFile;
 
-const mock_data = {
+const mockData = {
   newVersion: "0.0.2",
   bumpDate: "20/02/2020",
   fragments: [
@@ -32,7 +32,7 @@ const mock_data = {
   ]
 };
 
-const expected_output = `# [0.0.2] - (20/02/2020)
+const expectedOutput = `# [0.0.2] - (20/02/2020)
 ## Feature
 * Implements JWT handler
 * Add x-request-id to logger
@@ -51,15 +51,15 @@ afterEach(() => {
 });
 
 test("should render correctly the template", () => {
-  let result = renderTemplate(changelogTemplate, mock_data);
-  expect(result).toStrictEqual(expected_output);
+  const result = renderTemplate(changelogTemplate, mockData);
+  expect(result).toStrictEqual(expectedOutput);
 });
 
 test("should write in an empty file", () => {
   mockFs({
     "CHANGELOG.md": ""
   });
-  let renderedTemplate = renderTemplate(changelogTemplate, mock_data);
+  const renderedTemplate = renderTemplate(changelogTemplate, mockData);
   saveChangelogToFile(changelogFile, renderedTemplate);
   expect(fs.readFileSync(changelogFile).toString())
     .toStrictEqual(`# [0.0.2] - (20/02/2020)
@@ -75,9 +75,9 @@ test("should prepend in a file with content", () => {
   mockFs({
     "CHANGELOG.md": "matheuszin_reidelas2011@hotmail.com"
   });
-  let renderedTemplate = renderTemplate(changelogTemplate, mock_data);
+  const renderedTemplate = renderTemplate(changelogTemplate, mockData);
   saveChangelogToFile(changelogFile, renderedTemplate);
-  let data = fs.readFileSync(changelogFile);
+  const data = fs.readFileSync(changelogFile);
   expect(data.toString()).toStrictEqual(`# [0.0.2] - (20/02/2020)
 ## Feature
 * Implements JWT handler

@@ -2,7 +2,7 @@ const fs = require("fs");
 const Handlebars = require("handlebars");
 
 module.exports.renderTemplate = function(changelogTemplate, data) {
-  let compiledTemplate = Handlebars.compile(changelogTemplate);
+  const compiledTemplate = Handlebars.compile(changelogTemplate);
   return compiledTemplate(data);
 };
 

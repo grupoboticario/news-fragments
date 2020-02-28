@@ -21,8 +21,8 @@ afterEach(() => {
 });
 
 test("should return a list of fragment files based on fragment type", async () => {
-  bugfix = getFragmentsFilesByFragmentType("fragments", "bugfix");
-  feature = getFragmentsFilesByFragmentType("fragments", "feature");
+  const bugfix = getFragmentsFilesByFragmentType("fragments", "bugfix");
+  const feature = getFragmentsFilesByFragmentType("fragments", "feature");
 
   expect(bugfix).toEqual(["fragments/test.bugfix"]);
   expect(feature).toEqual([
@@ -32,17 +32,17 @@ test("should return a list of fragment files based on fragment type", async () =
 });
 
 test("should return an empty list when no fragments found", async () => {
-  misc = getFragmentsFilesByFragmentType("fragments", "misc");
+  const misc = getFragmentsFilesByFragmentType("fragments", "misc");
 
   expect(misc).toEqual([]);
 });
 
 test("should return a list of fragment data", async () => {
-  bugfix = getFragmentsFilesByFragmentType("fragments", "bugfix");
-  feature = getFragmentsFilesByFragmentType("fragments", "feature");
+  const bugfix = getFragmentsFilesByFragmentType("fragments", "bugfix");
+  const feature = getFragmentsFilesByFragmentType("fragments", "feature");
 
-  bugfixData = getFragmentsContent(bugfix);
-  featureData = getFragmentsContent(feature);
+  const bugfixData = getFragmentsContent(bugfix);
+  const featureData = getFragmentsContent(feature);
 
   expect(bugfixData).toEqual(["fake bugfix content"]);
   expect(featureData).toEqual([
@@ -52,8 +52,8 @@ test("should return a list of fragment data", async () => {
 });
 
 test("should delete fragment files", async () => {
-  bugfix = getFragmentsFilesByFragmentType("fragments", "bugfix");
-  feature = getFragmentsFilesByFragmentType("fragments", "feature");
+  const bugfix = getFragmentsFilesByFragmentType("fragments", "bugfix");
+  const feature = getFragmentsFilesByFragmentType("fragments", "feature");
 
   deleteFragmentsFiles(bugfix);
   deleteFragmentsFiles(feature);

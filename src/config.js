@@ -39,7 +39,7 @@ const baseConfig = {
 };
 
 module.exports.buildConfig = function(config) {
-  newsFragmentConfiguration = Object.assign({}, baseConfig, config);
+  const newsFragmentConfiguration = Object.assign({}, baseConfig, config);
 
   const { error } = schema.validate(newsFragmentConfiguration);
 

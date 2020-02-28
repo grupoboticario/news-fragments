@@ -5,9 +5,9 @@ module.exports.getFragmentsFilesByFragmentType = function(
   fragmentsFolder,
   fragmentType
 ) {
-  let dir = fs.readdirSync(fragmentsFolder);
+  const dir = fs.readdirSync(fragmentsFolder);
 
-  files = dir.filter(elm =>
+  const files = dir.filter(elm =>
     elm.match(new RegExp(`.*\.(${fragmentType})`, "ig"))
   );
 

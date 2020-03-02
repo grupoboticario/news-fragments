@@ -20,9 +20,9 @@ const schema = Joi.object({
 const changelogTemplate = `# [{{newVersion}}] - ({{bumpDate}})
 {{#fragments}}
 ## {{title}}
-{{#fragmentEntries}}
-* {{fragment}}
-{{/fragmentEntries}}
+{{#each fragmentEntries}}
+* {{this}}
+{{/each}}
 {{/fragments}}
 `;
 

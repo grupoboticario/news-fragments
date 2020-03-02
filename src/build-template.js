@@ -1,5 +1,6 @@
 const fs = require("fs-extra");
 const Handlebars = require("handlebars");
+const moment = require("moment");
 
 module.exports.renderTemplate = function(changelogTemplate, data) {
   const compiledTemplate = Handlebars.compile(changelogTemplate);
@@ -16,4 +17,16 @@ module.exports.saveChangelogToFile = function(filePath, renderedTemplate) {
   fs.writeSync(fileDescriptor, oldData, 0, oldData.length, newData.length);
 
   fs.closeSync(fileDescriptor);
+};
+
+module.exports.generateTemplateData = function(
+  newVersion,
+  dateFormat,
+  fragments
+) {
+  return {
+    newVersion,
+    bumpDate: moment().format(dateFormat),
+    fragments
+  };
 };

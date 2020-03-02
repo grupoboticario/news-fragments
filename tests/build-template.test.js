@@ -1,18 +1,22 @@
 const {
   renderTemplate,
+  generateTemplateData,
   saveChangelogToFile
 } = require("../src/build-template");
 const { buildConfig } = require("../src/config");
 
 const fs = require("fs-extra");
 const mockFs = require("mock-fs");
+const moment = require("moment");
 
 let changelogTemplate;
 let changelogFile;
 
+const TODAY = moment().format("YYYY-MM-DD");
+
 const mockData = {
   newVersion: "0.0.2",
-  bumpDate: "20/02/2020",
+  bumpDate: TODAY,
   fragments: [
     {
       title: "Feature",
@@ -27,7 +31,7 @@ const mockData = {
   ]
 };
 
-const expectedOutput = `# [0.0.2] - (20/02/2020)
+const expectedOutput = `# [0.0.2] - (${TODAY})
 ## Feature
 * Implements JWT handler
 * Add x-request-id to logger
@@ -57,7 +61,7 @@ test("should write in an empty file", () => {
   const renderedTemplate = renderTemplate(changelogTemplate, mockData);
   saveChangelogToFile(changelogFile, renderedTemplate);
   expect(fs.readFileSync(changelogFile).toString())
-    .toStrictEqual(`# [0.0.2] - (20/02/2020)
+    .toStrictEqual(`# [0.0.2] - (${TODAY})
 ## Feature
 * Implements JWT handler
 * Add x-request-id to logger
@@ -73,11 +77,29 @@ test("should prepend in a file with content", () => {
   const renderedTemplate = renderTemplate(changelogTemplate, mockData);
   saveChangelogToFile(changelogFile, renderedTemplate);
   const data = fs.readFileSync(changelogFile);
-  expect(data.toString()).toStrictEqual(`# [0.0.2] - (20/02/2020)
+  expect(data.toString()).toStrictEqual(`# [0.0.2] - (${TODAY})
 ## Feature
 * Implements JWT handler
 * Add x-request-id to logger
 ## Bugfix
 * Update auth function to work properly when JWT is null
 matheuszin_reidelas2011@hotmail.com`);
+});
+
+test("should generate the data to use in template", () => {
+  const fakeFragments = [
+    {
+      title: "Feature",
+      fragmentEntries: ["Implements JWT handler", "Add x-request-id to logger"]
+    },
+    {
+      title: "Bugfix",
+      fragmentEntries: [
+        "Update auth function to work properly when JWT is null"
+      ]
+    }
+  ];
+  expect(
+    generateTemplateData("0.0.2", "YYYY-MM-DD", fakeFragments)
+  ).toStrictEqual(mockData);
 });

@@ -1,4 +1,4 @@
-var fs = require("fs");
+var fs = require("fs-extra");
 var path = require("path");
 
 module.exports.getFragmentsFilesByFragmentType = function(

@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require("fs-extra");
 const Handlebars = require("handlebars");
 
 module.exports.renderTemplate = function(changelogTemplate, data) {

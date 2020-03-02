@@ -4,7 +4,7 @@ const {
   deleteFragmentsFiles
 } = require("../src/file");
 
-const fs = require("fs");
+const fs = require("fs-extra");
 const mockFs = require("mock-fs");
 
 beforeEach(() => {

@@ -4,7 +4,7 @@ const {
 } = require("../src/build-template");
 const { buildConfig } = require("../src/config");
 
-const fs = require("fs");
+const fs = require("fs-extra");
 const mockFs = require("mock-fs");
 
 let changelogTemplate;

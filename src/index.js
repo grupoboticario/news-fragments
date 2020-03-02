@@ -1,3 +1,4 @@
+const { buildConfig, retrieveUserConfig } = require("./config");
 const { Plugin } = require("release-it");
 const pjson = require("../package.json");
 
@@ -7,6 +8,10 @@ class NewsFragments extends Plugin {
   }
   getLatestVersion() {
     return pjson.version;
+  }
+  init() {
+    const userConfig = retrieveUserConfig(pjson, this.getName());
+    this.baseConfig = buildConfig(userConfig);
   }
 }
 

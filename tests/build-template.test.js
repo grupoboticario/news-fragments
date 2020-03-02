@@ -16,17 +16,12 @@ const mockData = {
   fragments: [
     {
       title: "Feature",
-      fragmentEntries: [
-        { fragment: "Implements JWT handler" },
-        { fragment: "Add x-request-id to logger" }
-      ]
+      fragmentEntries: ["Implements JWT handler", "Add x-request-id to logger"]
     },
     {
       title: "Bugfix",
       fragmentEntries: [
-        {
-          fragment: "Update auth function to work properly when JWT is null"
-        }
+        "Update auth function to work properly when JWT is null"
       ]
     }
   ]

@@ -1,4 +1,4 @@
-const { buildConfig } = require("../src/config");
+const { buildConfig, retrieveUserConfig } = require("../src/config");
 
 test("should return a base config", async () => {
   config = buildConfig({});
@@ -33,4 +33,21 @@ test.each([
   expect(() => {
     buildConfig(element);
   }).toThrowErrorMatchingSnapshot();
+});
+
+test("should retrieve user config info on package.json", () => {
+  const fakePjson = {
+    "release-it": {
+      plugins: {
+        xpto: {
+          foo: "bar"
+        }
+      }
+    }
+  };
+  expect(retrieveUserConfig(fakePjson, "xpto")).toStrictEqual({ foo: "bar" });
+});
+
+test("should return null when package.json doesnt have any configs", () => {
+  expect(retrieveUserConfig({}, null)).toBeNull();
 });

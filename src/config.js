@@ -1,5 +1,7 @@
 const Joi = require("@hapi/joi");
 
+const RELEASE_IT = "release-it";
+
 const fragmentsTypesSchema = Joi.object({
   title: Joi.string().required(),
   extension: Joi.string().required()
@@ -48,4 +50,16 @@ module.exports.buildConfig = function(config) {
   }
 
   return newsFragmentConfiguration;
+};
+
+module.exports.retrieveUserConfig = function(pjson, name) {
+  if (
+    pjson.hasOwnProperty(RELEASE_IT) &&
+    pjson[RELEASE_IT].hasOwnProperty("plugins") &&
+    pjson[RELEASE_IT]["plugins"].hasOwnProperty(name)
+  ) {
+    return pjson[RELEASE_IT]["plugins"][name];
+  }
+
+  return null;
 };

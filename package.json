@@ -41,6 +41,7 @@
     "@hapi/joi": "^17.1.0",
     "fs-extra": "^8.1.0",
     "handlebars": "^4.7.3",
+    "moment": "^2.24.0",
     "release-it": "^12.6.2"
   },
   "engines": {

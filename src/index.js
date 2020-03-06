@@ -1,4 +1,10 @@
+const {
+  generateTemplateData,
+  renderTemplate,
+  saveChangelogToFile
+} = require("./build-template");
 const { buildConfig, retrieveUserConfig } = require("./config");
+const { deleteFragmentsFiles } = require("./file");
 const { checkChangelogFile, checkFragmentsFolder } = require("./helpers");
 const {
   getFragmentsFilesByFragmentType,
@@ -48,6 +54,18 @@ class NewsFragments extends Plugin {
       }
     });
   }
+  afterRelease() {
+    const templateData = generateTemplateData(
+      this.getLatestVersion(),
+      this.baseConfig.dateFormat,
+      this.fragmentsToBurn
+    );
+    const renderedTemplate = renderTemplate(
+      this.baseConfig.changelogTemplate,
+      templateData
+    );
+    saveChangelogToFile(this.baseConfig.changelogFile, renderedTemplate);
+    deleteFragmentsFiles(this.fragmentsToDelete);
   }
 }
 

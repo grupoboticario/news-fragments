@@ -57,7 +57,7 @@ class NewsFragments extends Plugin {
   afterRelease() {
     const templateData = generateTemplateData(
       this.getLatestVersion(),
-      this.baseConfig.dateFormat,
+      this.baseConfig.changelogDateFormat,
       this.fragmentsToBurn
     );
     const renderedTemplate = renderTemplate(

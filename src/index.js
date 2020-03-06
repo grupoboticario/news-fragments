@@ -15,7 +15,7 @@ const pjson = require("../package.json");
 
 class NewsFragments extends Plugin {
   getName() {
-    return "@grupoboticario/newsfragments";
+    return "@grupoboticario/news-fragments";
   }
   getLatestVersion() {
     return pjson.version;

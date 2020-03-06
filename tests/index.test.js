@@ -1,9 +1,21 @@
 const { factory, runTasks } = require("release-it/test/util");
-const Plugin = require("../src");
+const mockFs = require("mock-fs");
+const Plugin = require("../src/index");
 const pjson = require("../package.json");
 const semver = require("semver");
 
 const namespace = "newsfragments";
+
+beforeEach(() => {
+  mockFs({
+    features: {},
+    "CHANGELOG.md": ""
+  });
+});
+
+afterEach(() => {
+  mockFs.restore();
+});
 
 test("should not throw errors and do a patch increase", async () => {
   const options = { [namespace]: {}, increment: "patch" };

@@ -13,15 +13,17 @@ afterEach(() => {
 });
 
 test("should create a changelog file if doesnt exist", () => {
-  expect(fs.existsSync("virtual-env/CHANGELOG.md")).toBeFalsy();
-  checkChangelogFile("virtual-env/CHANGELOG.md");
-  expect(fs.existsSync("virtual-env/CHANGELOG.md")).toBeTruthy();
-  checkChangelogFile("virtual-env/CHANGELOG.md");
+  const FILE = "virtual-env/CHANGELOG.md";
+  expect(fs.existsSync(FILE)).toBeFalsy();
+  checkChangelogFile(FILE);
+  expect(fs.existsSync(FILE)).toBeTruthy();
+  checkChangelogFile(FILE);
 });
 
 test("should create a fragments folder with .gitkeep if doesnt exist", () => {
-  expect(fs.existsSync("virtual-env/fragments/.gitkeep")).toBeFalsy();
-  checkFragmentsFolder("virtual-env/fragments/.gitkeep");
-  expect(fs.existsSync("virtual-env/fragments/.gitkeep")).toBeTruthy();
-  checkFragmentsFolder("virtual-env/fragments/.gitkeep");
+  const FOLDER = "virtual-env/fragments/.gitkeep";
+  expect(fs.existsSync(FOLDER)).toBeFalsy();
+  checkFragmentsFolder(FOLDER);
+  expect(fs.existsSync(FOLDER)).toBeTruthy();
+  checkFragmentsFolder(FOLDER);
 });

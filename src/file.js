@@ -18,7 +18,7 @@ module.exports.getFragmentsFilesByFragmentType = function(
 
 module.exports.getFragmentsContent = function(fragmentsFiles) {
   return fragmentsFiles.map(file => {
-    return fs.readFileSync(file, "utf8");
+    return fs.readFileSync(file, "utf8").replace("\n", "");
   });
 };
 

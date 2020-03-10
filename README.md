@@ -2,7 +2,7 @@
    <img src="./changelog.png" alt="Logo" title="Logo" />
 </p>
 
-[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=54b291df-ce9e-4a5f-b1dd-36cb380195ec&metric=alert_status)](dashboard) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=54b291df-ce9e-4a5f-b1dd-36cb380195ec&metric=coverage)](dashboard) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=54b291df-ce9e-4a5f-b1dd-36cb380195ec&metric=code_smells)](dashboard) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=54b291df-ce9e-4a5f-b1dd-36cb380195ec&metric=vulnerabilities)](dashboard) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=54b291df-ce9e-4a5f-b1dd-36cb380195ec&metric=security_rating)](dashboard)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=54b291df-ce9e-4a5f-b1dd-36cb380195ec&metric=alert_status)](https://sonarqube.com/dashboard/index/54b291df-ce9e-4a5f-b1dd-36cb380195ec) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=54b291df-ce9e-4a5f-b1dd-36cb380195ec&metric=coverage)](https://sonarqube.com/dashboard/index/54b291df-ce9e-4a5f-b1dd-36cb380195ec) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=54b291df-ce9e-4a5f-b1dd-36cb380195ec&metric=code_smells)](https://sonarqube.com/dashboard/index/54b291df-ce9e-4a5f-b1dd-36cb380195ec) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=54b291df-ce9e-4a5f-b1dd-36cb380195ec&metric=vulnerabilities)](https://sonarqube.com/dashboard/index/54b291df-ce9e-4a5f-b1dd-36cb380195ec) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=54b291df-ce9e-4a5f-b1dd-36cb380195ec&metric=security_rating)](https://sonarqube.com/dashboard/index/54b291df-ce9e-4a5f-b1dd-36cb380195ec)
 
 News fragments is a plugin for [release-it](https://github.com/release-it/release-it) that helps you to generate a changelog file.
 
@@ -54,10 +54,8 @@ In [release-it](https://github.com/release-it/release-it) config at `package.jso
 
 - **changelogFile**: A path to the file that will center your changelog.
 - **changelogDateFormat**: The date format that will be send to changelog template.
-- **changelogTemplate**: A [handlebars]() template that will be used to render your changelog file content.
+- **changelogTemplate**: A [handlebars](https://www.npmjs.com/package/handlebars) template that will be used to render your changelog file content.
 - **fragmentsFolder**: A path to the folder that the fragments should be stored.
 - **fragmentsTypes**: An array containing a collection of objects with the title of changelog section and the extension of fragment types.
 
-> See this plugin in action by checking our [CHANGELOG.md]()
-
-[dashboard]: https://sonarqube.com/dashboard/index/54b291df-ce9e-4a5f-b1dd-36cb380195ec
+> See this plugin in action by checking our [CHANGELOG.md](./CHANGELOG.md)

@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@hapi/joi": "^17.1.0",
-    "release-it": "^12.6.3",
+    "release-it": "^13.0.2",
     "handlebars": "^4.7.3"
   },
   "engines": {

@@ -14,9 +14,6 @@ const { Plugin } = require("release-it");
 const pjson = require("../package.json");
 
 class NewsFragments extends Plugin {
-  getLatestVersion() {
-    return pjson.version;
-  }
   start() {
     checkChangelogFile(this.baseConfig.changelogFile);
     checkFragmentsFolder(this.baseConfig.fragmentsFolder);

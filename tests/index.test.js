@@ -24,16 +24,6 @@ afterEach(() => {
   mockFs.restore();
 });
 
-test("should not throw errors and do a patch increase", async () => {
-  const options = { [namespace]: {}, increment: "patch" };
-  const plugin = factory(Plugin, { namespace, options });
-  expect(await runTasks(plugin)).toStrictEqual({
-    latestVersion: pjson.version,
-    name: "__test__",
-    version: semver.inc(pjson.version, "patch")
-  });
-});
-
 test("should collect a fragment when running init method", () => {
   newsFragments.init();
   expect(newsFragments.fragmentsToBurn).toStrictEqual([

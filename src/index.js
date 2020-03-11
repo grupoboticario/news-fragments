@@ -54,9 +54,9 @@ class NewsFragments extends Plugin {
       }
     });
   }
-  afterRelease() {
+  bump(version) {
     const templateData = generateTemplateData(
-      this.getLatestVersion(),
+      version,
       this.baseConfig.changelogDateFormat,
       this.fragmentsToBurn
     );

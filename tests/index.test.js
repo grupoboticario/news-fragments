@@ -52,7 +52,7 @@ test("should delete fragments when generated changelog", () => {
 * Coleta com sucesso
 `;
   newsFragments.init();
-  newsFragments.afterRelease();
+  newsFragments.bump(version);
   expect(
     fs.readdirSync(newsFragments.baseConfig.fragmentsFolder)
   ).toStrictEqual([".gitkeep"]);

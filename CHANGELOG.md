@@ -1,3 +1,9 @@
+# [1.0.2] - (2020-03-11)
+
+## Bugfixes
+
+- Remove &#x60;getLatestVersion&#x60; method from NewsFragments.
+
 # [1.0.1] - (2020-03-11)
 
 ## Bugfixes

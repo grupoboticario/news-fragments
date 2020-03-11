@@ -51,7 +51,8 @@
   "release-it": {
     "npm": false,
     "hooks": {
-      "before:init": "npm test"
+      "before:init": "npm test",
+      "after:bump": "node myself-release.js"
     },
     "plugins": {
       "@release-it/bumper": {

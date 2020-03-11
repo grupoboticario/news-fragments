@@ -14,9 +14,6 @@ const { Plugin } = require("release-it");
 const pjson = require("../package.json");
 
 class NewsFragments extends Plugin {
-  getName() {
-    return "@grupoboticario/news-fragments";
-  }
   getLatestVersion() {
     return pjson.version;
   }
@@ -25,7 +22,10 @@ class NewsFragments extends Plugin {
     checkFragmentsFolder(this.baseConfig.fragmentsFolder);
   }
   init() {
-    const userConfig = retrieveUserConfig(pjson, this.getName());
+    const userConfig = retrieveUserConfig(
+      pjson,
+      "@grupoboticario/news-fragments"
+    );
     this.baseConfig = buildConfig(userConfig);
 
     this.start();

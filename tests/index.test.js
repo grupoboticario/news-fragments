@@ -29,7 +29,7 @@ test("should not throw errors and do a patch increase", async () => {
   const plugin = factory(Plugin, { namespace, options });
   expect(await runTasks(plugin)).toStrictEqual({
     latestVersion: pjson.version,
-    name: "@grupoboticario/news-fragments",
+    name: "__test__",
     version: semver.inc(pjson.version, "patch")
   });
 });

@@ -1,6 +1,6 @@
 {
   "name": "@grupoboticario/news-fragments",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "A release-it plugin to manipulate changelogs",
   "main": "src/index.js",
   "scripts": {
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/grupoboticario/news-fragments#readme",
   "devDependencies": {
+    "@release-it/bumper": "^1.1.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
@@ -48,8 +49,19 @@
     "node": ">=8"
   },
   "release-it": {
+    "npm": false,
     "hooks": {
       "before:init": "npm test"
+    },
+    "plugins": {
+      "@release-it/bumper": {
+        "out": [
+          {
+            "file": "sonar-project.properties",
+            "type": "text/plain"
+          }
+        ]
+      }
     }
   },
   "husky": {

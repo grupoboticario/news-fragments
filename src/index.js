@@ -1,17 +1,16 @@
 const {
   generateTemplateData,
   renderTemplate,
-  saveChangelogToFile
+  saveChangelogToFile,
 } = require("./build-template");
-const { buildConfig, retrieveUserConfig } = require("./config");
+const { newsFragmentsUserConfig } = require("./config");
 const { deleteFragmentsFiles } = require("./file");
 const { checkChangelogFile, checkFragmentsFolder } = require("./helpers");
 const {
   getFragmentsFilesByFragmentType,
-  getFragmentsContent
+  getFragmentsContent,
 } = require("./file");
 const { Plugin } = require("release-it");
-const pjson = require("../package.json");
 
 class NewsFragments extends Plugin {
   start() {
@@ -19,18 +18,14 @@ class NewsFragments extends Plugin {
     checkFragmentsFolder(this.baseConfig.fragmentsFolder);
   }
   init() {
-    const userConfig = retrieveUserConfig(
-      pjson,
-      "@grupoboticario/news-fragments"
-    );
-    this.baseConfig = buildConfig(userConfig);
+    this.baseConfig = newsFragmentsUserConfig;
 
     this.start();
 
     this.fragmentsToBurn = [];
     this.fragmentsToDelete = [];
 
-    this.baseConfig.fragmentsTypes.forEach(fragmentType => {
+    this.baseConfig.fragmentsTypes.forEach((fragmentType) => {
       const fragmentsEncountered = getFragmentsFilesByFragmentType(
         this.baseConfig.fragmentsFolder,
         fragmentType.extension
@@ -38,7 +33,7 @@ class NewsFragments extends Plugin {
 
       this.fragmentsToDelete = [
         ...this.fragmentsToDelete,
-        ...fragmentsEncountered
+        ...fragmentsEncountered,
       ];
 
       const fragmentEntries = getFragmentsContent(fragmentsEncountered);
@@ -46,7 +41,7 @@ class NewsFragments extends Plugin {
       if (fragmentEntries.length > 0) {
         this.fragmentsToBurn.push({
           title: fragmentType.title,
-          fragmentEntries
+          fragmentEntries,
         });
       }
     });

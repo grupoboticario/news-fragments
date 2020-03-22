@@ -1,10 +1,12 @@
+const pjson = require("../package.json");
+
 const Joi = require("@hapi/joi");
 
 const RELEASE_IT = "release-it";
 
 const fragmentsTypesSchema = Joi.object({
   title: Joi.string().required(),
-  extension: Joi.string().required()
+  extension: Joi.string().required(),
 }).required();
 
 const schema = Joi.object({
@@ -12,9 +14,7 @@ const schema = Joi.object({
   changelogDateFormat: Joi.string().required(),
   changelogTemplate: Joi.string().required(),
   fragmentsFolder: Joi.string().required(),
-  fragmentsTypes: Joi.array()
-    .items(fragmentsTypesSchema)
-    .required()
+  fragmentsTypes: Joi.array().items(fragmentsTypesSchema).required(),
 });
 
 const changelogTemplate = `# [{{newVersion}}] - ({{bumpDate}})
@@ -36,11 +36,11 @@ const baseConfig = {
     { title: "Bugfixes", extension: "bugfix" },
     { title: "Documentation", extension: "doc" },
     { title: "Deprecations and Removals", extension: "removal" },
-    { title: "Misc", extension: "misc" }
-  ]
+    { title: "Misc", extension: "misc" },
+  ],
 };
 
-module.exports.buildConfig = function(config) {
+const buildConfig = function (config) {
   const newsFragmentConfiguration = Object.assign({}, baseConfig, config);
 
   const { error } = schema.validate(newsFragmentConfiguration);
@@ -52,7 +52,7 @@ module.exports.buildConfig = function(config) {
   return newsFragmentConfiguration;
 };
 
-module.exports.retrieveUserConfig = function(pjson, name) {
+const retrieveUserConfig = function (pjson, name) {
   if (
     pjson.hasOwnProperty(RELEASE_IT) &&
     pjson[RELEASE_IT].hasOwnProperty("plugins") &&
@@ -63,3 +63,9 @@ module.exports.retrieveUserConfig = function(pjson, name) {
 
   return null;
 };
+
+module.exports.retrieveUserConfig = retrieveUserConfig;
+module.exports.buildConfig = buildConfig;
+module.exports.newsFragmentsUserConfig = buildConfig(
+  retrieveUserConfig(pjson, "@grupoboticario/news-fragments")
+);

@@ -1,3 +1,13 @@
+# [1.1.0] - (2020-03-24)
+
+## Features
+
+- Create a cli command to helps creation of news fragment file.
+
+## Misc
+
+- Bump minimist to v1.2.5 to fix vulnerabilities.
+
 # [1.0.2] - (2020-03-11)
 
 ## Bugfixes

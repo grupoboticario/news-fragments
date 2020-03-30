@@ -1,8 +1,7 @@
-const pjson = require("../package.json");
-
+const Config = require("release-it/lib/config");
 const Joi = require("@hapi/joi");
 
-const RELEASE_IT = "release-it";
+const globalConfig = new Config();
 
 const fragmentsTypesSchema = Joi.object({
   title: Joi.string().required(),
@@ -52,20 +51,12 @@ const buildConfig = function (config) {
   return newsFragmentConfiguration;
 };
 
-const retrieveUserConfig = function (pjson, name) {
-  if (
-    pjson.hasOwnProperty(RELEASE_IT) &&
-    pjson[RELEASE_IT].hasOwnProperty("plugins") &&
-    pjson[RELEASE_IT]["plugins"].hasOwnProperty(name)
-  ) {
-    return pjson[RELEASE_IT]["plugins"][name];
-  }
-
-  return null;
+const retrieveUserConfig = function (config, name) {
+  return config.getContext(`plugins.${name}`) || null;
 };
 
 module.exports.retrieveUserConfig = retrieveUserConfig;
 module.exports.buildConfig = buildConfig;
 module.exports.newsFragmentsUserConfig = buildConfig(
-  retrieveUserConfig(pjson, "@grupoboticario/news-fragments")
+  retrieveUserConfig(globalConfig, "@grupoboticario/news-fragments")
 );

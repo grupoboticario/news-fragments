@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
-    "chalk": "^3.0.0",
+    "chalk": "^4.0.0",
     "fs-extra": "^9.0.0",
     "handlebars": "^4.7.3",
     "meow": "^6.1.0",

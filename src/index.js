@@ -59,6 +59,7 @@ class NewsFragments extends Plugin {
     saveChangelogToFile(this.baseConfig.changelogFile, renderedTemplate);
     deleteFragmentsFiles(this.fragmentsToDelete);
   }
+  getChangelog() {}
 }
 
 module.exports = NewsFragments;

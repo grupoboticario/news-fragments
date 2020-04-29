@@ -1,8 +1,19 @@
-# [1.1.1] - (2020-04-06)
+# [1.1.2] - (2020-04-29)
+
 ## Features
-* Upgrade dependencies
+
+- Upgrade dependencies
+
+# [1.1.1] - (2020-04-06)
+
+## Features
+
+- Upgrade dependencies
+
 ## Bugfixes
-* Use release-its config helper when loading users configurations.
+
+- Use release-its config helper when loading users configurations.
+
 # [1.1.0] - (2020-03-24)
 
 ## Features

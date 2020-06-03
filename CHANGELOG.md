@@ -1,3 +1,13 @@
+# [1.2.0] - (2020-06-03)
+
+## Features
+
+- Update dependencies
+
+## Bugfixes
+
+- Fix license on package.json
+
 # [1.1.2] - (2020-04-29)
 
 ## Features

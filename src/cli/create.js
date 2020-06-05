@@ -3,6 +3,7 @@ const path = require("path");
 const chalk = require("chalk");
 
 const { newsFragmentsUserConfig } = require("../config");
+const { checkFragmentsFolder } = require("../helpers");
 
 const availableFragmentTypes = newsFragmentsUserConfig.fragmentsTypes.map(
   function (el) {
@@ -24,10 +25,10 @@ Choose one of available fragment types: {green ${availableFragmentTypes}}`;
     return message;
   }
 
-  const filename = path.join(
-    newsFragmentsUserConfig.fragmentsFolder,
-    `${+new Date()}.${fragmentType}`
-  );
+  const fragmentsFolder = newsFragmentsUserConfig.fragmentsFolder;
+  const filename = path.join(fragmentsFolder, `${+new Date()}.${fragmentType}`);
+
+  checkFragmentsFolder(fragmentsFolder);
 
   fs.writeFileSync(filename, fragmentText);
 

@@ -14,7 +14,7 @@ const cli = meow(
     --help
 
 	Examples
-	  $ news-fragments new feature "New feature"
+	  $ news-fragments create feature "New feature"
 `
 );
 

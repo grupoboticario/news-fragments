@@ -4,31 +4,31 @@
 const meow = require("meow");
 const chalk = require("chalk");
 const { create } = require("./create");
+const { preview } = require("./preview");
 
 const cli = meow(
   `
 	Usage
-	  $ news-fragments create <fragment-type> <fragment-text>
+    $ news-fragments create <fragment-type> <fragment-text>
+    $ news-fragments preview
 
   Options
     --help
 
 	Examples
-	  $ news-fragments create feature "New feature"
+    $ news-fragments create feature "New feature"
 `
 );
 
-const invalidCommand = function () {
-  console.log(chalk`{red Invalid command, please run:} 
-
-    {green news-fragments --help} 
-
-{red to see available commands!}`);
-};
-
 const commands = {
   create: create,
+  preview: preview,
 };
 
-const command = commands[cli.input[0]] || invalidCommand;
-command(cli.input);
+const command = commands[cli.input[0]];
+
+if (command !== undefined) {
+  command(cli.input);
+} else {
+  cli.showHelp(0);
+}

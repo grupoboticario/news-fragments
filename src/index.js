@@ -4,59 +4,37 @@ const {
   saveChangelogToFile,
 } = require("./build-template");
 const { newsFragmentsUserConfig } = require("./config");
-const { deleteFragmentsFiles } = require("./file");
 const { checkChangelogFile, checkFragmentsFolder } = require("./helpers");
-const {
-  getFragmentsFilesByFragmentType,
-  getFragmentsContent,
-} = require("./file");
+const { getFragments, deleteFragmentsFiles } = require("./file");
 const { Plugin } = require("release-it");
 
 class NewsFragments extends Plugin {
   start() {
-    checkChangelogFile(this.baseConfig.changelogFile);
-    checkFragmentsFolder(this.baseConfig.fragmentsFolder);
+    checkChangelogFile(newsFragmentsUserConfig.changelogFile);
+    checkFragmentsFolder(newsFragmentsUserConfig.fragmentsFolder);
   }
   init() {
-    this.baseConfig = newsFragmentsUserConfig;
-
     this.start();
 
-    this.fragmentsToBurn = [];
-    this.fragmentsToDelete = [];
+    const newsFragments = getFragments(newsFragmentsUserConfig);
 
-    this.baseConfig.fragmentsTypes.forEach((fragmentType) => {
-      const fragmentsEncountered = getFragmentsFilesByFragmentType(
-        this.baseConfig.fragmentsFolder,
-        fragmentType.extension
-      );
-
-      this.fragmentsToDelete = [
-        ...this.fragmentsToDelete,
-        ...fragmentsEncountered,
-      ];
-
-      const fragmentEntries = getFragmentsContent(fragmentsEncountered);
-
-      if (fragmentEntries.length > 0) {
-        this.fragmentsToBurn.push({
-          title: fragmentType.title,
-          fragmentEntries,
-        });
-      }
-    });
+    this.fragmentsToBurn = newsFragments.fragmentsToBurn;
+    this.fragmentsToDelete = newsFragments.fragmentsToDelete;
   }
   bump(version) {
     const templateData = generateTemplateData(
       version,
-      this.baseConfig.changelogDateFormat,
+      newsFragmentsUserConfig.changelogDateFormat,
       this.fragmentsToBurn
     );
     const renderedTemplate = renderTemplate(
-      this.baseConfig.changelogTemplate,
+      newsFragmentsUserConfig.changelogTemplate,
       templateData
     );
-    saveChangelogToFile(this.baseConfig.changelogFile, renderedTemplate);
+    saveChangelogToFile(
+      newsFragmentsUserConfig.changelogFile,
+      renderedTemplate
+    );
     deleteFragmentsFiles(this.fragmentsToDelete);
   }
   getChangelog() {}

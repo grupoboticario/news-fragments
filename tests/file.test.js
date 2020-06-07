@@ -1,7 +1,8 @@
 const {
   getFragmentsFilesByFragmentType,
   getFragmentsContent,
-  deleteFragmentsFiles
+  deleteFragmentsFiles,
+  getFragments,
 } = require("../src/file");
 
 const fs = require("fs-extra");
@@ -12,7 +13,7 @@ beforeEach(() => {
     "fragments/.gitkeep": "",
     "fragments/test.bugfix": "fake bugfix content",
     "fragments/test.feature": "fake feature content",
-    "fragments/test2.feature": "fake 2 feature content"
+    "fragments/test2.feature": "fake 2 feature content",
   });
 });
 
@@ -27,7 +28,7 @@ test("should return a list of fragment files based on fragment type", async () =
   expect(bugfix).toEqual(["fragments/test.bugfix"]);
   expect(feature).toEqual([
     "fragments/test.feature",
-    "fragments/test2.feature"
+    "fragments/test2.feature",
   ]);
 });
 
@@ -47,7 +48,7 @@ test("should return a list of fragment data", async () => {
   expect(bugfixData).toEqual(["fake bugfix content"]);
   expect(featureData).toEqual([
     "fake feature content",
-    "fake 2 feature content"
+    "fake 2 feature content",
   ]);
 });
 

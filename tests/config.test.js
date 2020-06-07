@@ -9,6 +9,7 @@ test("should return a base config", async () => {
   expect(config.fragmentsFolder).toBe("fragments");
   expect(config.changelogTemplate).toBe(`# [{{newVersion}}] - ({{bumpDate}})
 {{#fragments}}
+
 ## {{title}}
 {{#each fragmentEntries}}
 * {{this}}

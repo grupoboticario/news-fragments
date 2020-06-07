@@ -59,3 +59,9 @@ In [release-it](https://github.com/release-it/release-it) config at `package.jso
 - **fragmentsTypes**: An array containing a collection of objects with the title of changelog section and the extension of fragment types.
 
 > See this plugin in action by checking our [CHANGELOG.md](./CHANGELOG.md)
+
+## CLI
+
+```bash
+news-fragments --help
+```

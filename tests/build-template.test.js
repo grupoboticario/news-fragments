@@ -1,7 +1,7 @@
 const {
   renderTemplate,
   generateTemplateData,
-  saveChangelogToFile
+  saveChangelogToFile,
 } = require("../src/build-template");
 const { buildConfig } = require("../src/config");
 
@@ -20,21 +20,23 @@ const mockData = {
   fragments: [
     {
       title: "Feature",
-      fragmentEntries: ["Implements JWT handler", "Add x-request-id to logger"]
+      fragmentEntries: ["Implements JWT handler", "Add x-request-id to logger"],
     },
     {
       title: "Bugfix",
       fragmentEntries: [
-        "Update auth function to work properly when JWT is null"
-      ]
-    }
-  ]
+        "Update auth function to work properly when JWT is null",
+      ],
+    },
+  ],
 };
 
 const expectedOutput = `# [0.0.2] - (${TODAY})
+
 ## Feature
 * Implements JWT handler
 * Add x-request-id to logger
+
 ## Bugfix
 * Update auth function to work properly when JWT is null
 `;
@@ -56,15 +58,17 @@ test("should render correctly the template", () => {
 
 test("should write in an empty file", () => {
   mockFs({
-    "CHANGELOG.md": ""
+    "CHANGELOG.md": "",
   });
   const renderedTemplate = renderTemplate(changelogTemplate, mockData);
   saveChangelogToFile(changelogFile, renderedTemplate);
   expect(fs.readFileSync(changelogFile).toString())
     .toStrictEqual(`# [0.0.2] - (${TODAY})
+
 ## Feature
 * Implements JWT handler
 * Add x-request-id to logger
+
 ## Bugfix
 * Update auth function to work properly when JWT is null
 `);
@@ -72,15 +76,17 @@ test("should write in an empty file", () => {
 
 test("should prepend in a file with content", () => {
   mockFs({
-    "CHANGELOG.md": "matheuszin_reidelas2011@hotmail.com"
+    "CHANGELOG.md": "matheuszin_reidelas2011@hotmail.com",
   });
   const renderedTemplate = renderTemplate(changelogTemplate, mockData);
   saveChangelogToFile(changelogFile, renderedTemplate);
   const data = fs.readFileSync(changelogFile);
   expect(data.toString()).toStrictEqual(`# [0.0.2] - (${TODAY})
+
 ## Feature
 * Implements JWT handler
 * Add x-request-id to logger
+
 ## Bugfix
 * Update auth function to work properly when JWT is null
 matheuszin_reidelas2011@hotmail.com`);
@@ -90,14 +96,14 @@ test("should generate the data to use in template", () => {
   const fakeFragments = [
     {
       title: "Feature",
-      fragmentEntries: ["Implements JWT handler", "Add x-request-id to logger"]
+      fragmentEntries: ["Implements JWT handler", "Add x-request-id to logger"],
     },
     {
       title: "Bugfix",
       fragmentEntries: [
-        "Update auth function to work properly when JWT is null"
-      ]
-    }
+        "Update auth function to work properly when JWT is null",
+      ],
+    },
   ];
   expect(
     generateTemplateData("0.0.2", "YYYY-MM-DD", fakeFragments)

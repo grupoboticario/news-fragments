@@ -27,7 +27,7 @@
   "homepage": "https://github.com/grupoboticario/news-fragments#readme",
   "devDependencies": {
     "@release-it/bumper": "^1.1.1",
-    "eslint": "^7.0.0",
+    "eslint": "^7.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
     "husky": "^4.2.5",
@@ -41,14 +41,14 @@
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
-    "chalk": "^4.0.0",
-    "fs-extra": "^9.0.0",
+    "chalk": "^4.1.0",
+    "fs-extra": "^9.0.1",
     "handlebars": "^4.7.6",
     "marked": "^1.1.0",
     "marked-terminal": "^4.1.0",
-    "meow": "^7.0.0",
-    "moment": "^2.24.0",
-    "release-it": "^13.5.7"
+    "meow": "^7.0.1",
+    "moment": "^2.26.0",
+    "release-it": "^13.6.2"
   },
   "engines": {
     "node": ">=8"

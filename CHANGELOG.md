@@ -1,3 +1,14 @@
+# [1.3.0] - (2020-06-09)
+
+## Features
+
+- Create a command to preview changelog
+- Update dependencies
+
+## Bugfixes
+
+- Create fragment folder if not exists on cli
+
 # [1.2.0] - (2020-06-03)
 
 ## Features

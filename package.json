@@ -48,7 +48,7 @@
     "marked-terminal": "^4.1.0",
     "meow": "^7.1.0",
     "moment": "^2.27.0",
-    "release-it": "^13.6.9"
+    "release-it": "^14.0.1"
   },
   "engines": {
     "node": ">=8"

@@ -1,3 +1,9 @@
+# [1.6.0] - (2020-09-04)
+
+## Features
+
+- Update dependencies
+
 # [1.5.0] - (2020-08-25)
 
 ## Misc

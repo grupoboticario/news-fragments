@@ -13,7 +13,7 @@ const availableFragmentTypes = newsFragmentsUserConfig.fragmentsTypes.map(
 
 module.exports.create = function (inputs) {
   const fragmentType = inputs[1];
-  const fragmentText = inputs[2] || "";
+  let fragmentText = inputs[2] || "";
   let message = "";
 
   if (!availableFragmentTypes.includes(fragmentType)) {
@@ -29,6 +29,10 @@ Choose one of available fragment types: {green ${availableFragmentTypes}}`;
   const filename = path.join(fragmentsFolder, `${+new Date()}.${fragmentType}`);
 
   checkFragmentsFolder(fragmentsFolder);
+
+  if (fragmentText.length > 0 && !fragmentText.endsWith(".")) {
+    fragmentText = `${fragmentText}.`;
+  }
 
   fs.writeFileSync(filename, fragmentText);
 

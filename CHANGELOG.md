@@ -1,3 +1,10 @@
+# [1.7.0] - (2020-10-05)
+
+## Misc
+
+- Update dependencies.
+- Append dot at end of message on cli helper.
+
 # [1.6.0] - (2020-09-04)
 
 ## Features

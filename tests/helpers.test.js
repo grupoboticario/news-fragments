@@ -4,7 +4,7 @@ const mockFs = require("mock-fs");
 
 beforeEach(() => {
   mockFs({
-    "virtual-env": {}
+    "virtual-env": {},
   });
 });
 

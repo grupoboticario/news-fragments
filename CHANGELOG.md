@@ -1,3 +1,15 @@
+# [1.8.0] - (2020-12-03)
+
+## Features
+
+- Update dependencies.
+- Adds a burn function in order to use news-fragments in a standalone form.
+
+## Misc
+
+- Remove lint problems.
+- Update .nvmrc to version 14.13.1, removing the &#x27;latest&#x27; term.
+
 # [1.7.0] - (2020-10-05)
 
 ## Misc

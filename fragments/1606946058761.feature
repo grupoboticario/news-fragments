@@ -1,1 +1,0 @@
-Adds a burn function in order to use news-fragments in a standalone form.

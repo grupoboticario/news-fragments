@@ -4,6 +4,10 @@ const fs = require("fs");
 const mockFs = require("mock-fs");
 const MockDate = require("mockdate");
 
+beforeEach(() => {
+  MockDate.set("2020-12-02T11:01:58.135Z");
+});
+
 afterEach(() => {
   mockFs.restore();
   MockDate.reset();

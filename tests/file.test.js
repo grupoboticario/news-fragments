@@ -3,6 +3,7 @@ const {
   getFragmentsContent,
   deleteFragmentsFiles,
   getFragments,
+  getChangelogContent,
 } = require("../src/file");
 
 const fs = require("fs-extra");
@@ -60,4 +61,25 @@ test("should delete fragment files", async () => {
   deleteFragmentsFiles(feature);
 
   expect(fs.readdirSync("fragments")).toStrictEqual([".gitkeep"]);
+});
+
+test("should return empty when there is no changelog content", async () => {
+  const fakeNewsFragmentsConfig = {
+    changelogFile: "CHANGELOG.md",
+  };
+  expect(getChangelogContent(fakeNewsFragmentsConfig)).toEqual("");
+});
+
+test("should return the changelog content", async () => {
+  mockFs({
+    "CHANGELOG.md": "My content bruh",
+  });
+
+  const fakeNewsFragmentsConfig = {
+    changelogFile: "CHANGELOG.md",
+  };
+
+  expect(getChangelogContent(fakeNewsFragmentsConfig)).toEqual(
+    "My content bruh"
+  );
 });

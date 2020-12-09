@@ -16,7 +16,9 @@ module.exports.preview = function (inputs, flags) {
     );
 
     const changelogContent = getChangelogContent(newsFragmentsUserConfig);
-    const output = (changelogContent.match(previousVersionRegex) || [""])[0];
+    const output = marked(
+      (changelogContent.match(previousVersionRegex) || [""])[0]
+    );
 
     process.stdout.write(output);
 

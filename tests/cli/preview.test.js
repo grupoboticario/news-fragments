@@ -68,13 +68,12 @@ test("should return a previous version", async () => {
   });
 
   const result = preview({}, { previousVersion: "1.0.1" });
-  const expected = `# [1.0.1] - (2020-03-11)
 
-## Bugfixes
-
-- Remove method &#x60;getName&#x60; from NewsFragments plugin.`;
-
-  expect(result).toEqual(expected);
+  expect(result).toContain("# [1.0.1] - (2020-03-11)");
+  expect(result).toContain("## Bugfixes");
+  expect(result).toContain(
+    "Remove method &#x60;getName&#x60; from NewsFragments plugin."
+  );
 });
 
 test("should return nothing when the previous version doesn't exist", async () => {

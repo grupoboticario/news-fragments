@@ -7,8 +7,28 @@ afterEach(() => {
   MockDate.reset();
 });
 
+const FAKE_DATE = "2019-05-14T11:01:58.135Z";
+
+const fakeChangelog = `# [1.0.2] - (2020-03-11)
+
+## Bugfixes
+
+- Remove &#x60;getLatestVersion&#x60; method from NewsFragments.
+
+# [1.0.1] - (2020-03-11)
+
+## Bugfixes
+
+- Remove method &#x60;getName&#x60; from NewsFragments plugin.
+
+# [1.0.0] - (2020-03-11)
+
+## Features
+
+- First release! 🚀`;
+
 test("should only return date when there are no fragments", async () => {
-  MockDate.set("2019-05-14T11:01:58.135Z");
+  MockDate.set(FAKE_DATE);
 
   mockFs({
     fragments: {},
@@ -25,7 +45,7 @@ test("should only return date when there are no fragments", async () => {
 });
 
 test("should return data from fragments", async () => {
-  MockDate.set("2019-05-14T11:01:58.135Z");
+  MockDate.set(FAKE_DATE);
 
   mockFs({
     fragments: {
@@ -38,4 +58,33 @@ test("should return data from fragments", async () => {
   expect(result).toContain("# [NEXT_RELEASE] - (2019-05-14)");
   expect(result).toContain("## Features");
   expect(result).toContain("My feature");
+});
+
+test("should return a previous version", async () => {
+  MockDate.set(FAKE_DATE);
+
+  mockFs({
+    "CHANGELOG.md": fakeChangelog,
+  });
+
+  const result = preview({}, { previousVersion: "1.0.1" });
+  const expected = `# [1.0.1] - (2020-03-11)
+
+## Bugfixes
+
+- Remove method &#x60;getName&#x60; from NewsFragments plugin.`;
+
+  expect(result).toEqual(expected);
+});
+
+test("should return nothing when the previous version doesn't exist", async () => {
+  MockDate.set(FAKE_DATE);
+
+  mockFs({
+    "CHANGELOG.md": fakeChangelog,
+  });
+
+  const result = preview({}, { previousVersion: "5.0.1" });
+
+  expect(result).toEqual("");
 });

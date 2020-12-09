@@ -1,5 +1,5 @@
 const { newsFragmentsUserConfig } = require("../config");
-const { getFragments } = require("../file");
+const { getFragments, getChangelogContent } = require("../file");
 const { generateTemplateData, renderTemplate } = require("../build-template");
 
 var marked = require("marked");
@@ -9,7 +9,20 @@ marked.setOptions({
   renderer: new TerminalRenderer(),
 });
 
-module.exports.preview = function (inputs) {
+module.exports.preview = function (inputs, flags) {
+  if (!!flags && flags.previousVersion) {
+    const previousVersionRegex = new RegExp(
+      `# \\[${flags.previousVersion}\\] - \\(.*\\)([^\\[]+)\\.`
+    );
+
+    const changelogContent = getChangelogContent(newsFragmentsUserConfig);
+    const output = (changelogContent.match(previousVersionRegex) || [""])[0];
+
+    process.stdout.write(output);
+
+    return output;
+  }
+
   const newsFragments = getFragments(newsFragmentsUserConfig);
   const version = "NEXT_RELEASE";
 

@@ -8,7 +8,7 @@ const { getFragments, deleteFragmentsFiles } = require("../file");
 
 const chalk = require("chalk");
 
-module.exports.burn = function (inputs) {
+module.exports.burn = function (inputs, flags) {
   const newsFragments = getFragments(newsFragmentsUserConfig);
   const version = inputs[1];
   let message = "";

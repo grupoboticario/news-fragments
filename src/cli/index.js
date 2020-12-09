@@ -20,7 +20,15 @@ const cli = meow(
 	Examples
     $ news-fragments create feature "New feature"
     $ news-fragments burn 0.0.1
-`
+`,
+  {
+    flags: {
+      previousVersion: {
+        type: "string",
+        alias: "p",
+      },
+    },
+  }
 );
 
 const commands = {
@@ -32,7 +40,7 @@ const commands = {
 const command = commands[cli.input[0]];
 
 if (command !== undefined) {
-  command(cli.input);
+  command(cli.input, cli.flags);
 } else {
   cli.showHelp(0);
 }

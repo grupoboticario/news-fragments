@@ -11,7 +11,7 @@ const availableFragmentTypes = newsFragmentsUserConfig.fragmentsTypes.map(
   }
 );
 
-module.exports.create = function (inputs) {
+module.exports.create = function (inputs, flags) {
   const fragmentType = inputs[1];
   let fragmentText = inputs[2] || "";
   let message = "";

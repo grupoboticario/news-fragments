@@ -12,6 +12,7 @@ const cli = meow(
 	Usage
     $ news-fragments create <fragment-type> <fragment-text>
     $ news-fragments preview
+    $ news-fragments preview -p <previous-version>
     $ news-fragments burn <version>
 
   Options
@@ -20,6 +21,8 @@ const cli = meow(
 	Examples
     $ news-fragments create feature "New feature"
     $ news-fragments burn 0.0.1
+    $ news-fragments preview
+    $ news-fragments preview -p 0.0.1
 `,
   {
     flags: {

@@ -1,6 +1,8 @@
 var fs = require("fs-extra");
 var path = require("path");
 
+const { checkChangelogFile } = require("./helpers");
+
 const getFragmentsFilesByFragmentType = function (
   fragmentsFolder,
   fragmentType
@@ -60,4 +62,11 @@ module.exports.getFragments = function (newsFragmentsConfig) {
   });
 
   return newsFragments;
+};
+
+module.exports.getChangelogContent = function (newsFragmentsConfig) {
+  const changelogPath = newsFragmentsConfig.changelogFile;
+  checkChangelogFile(changelogPath);
+
+  return fs.readFileSync(changelogPath, { encoding: "UTF-8" });
 };

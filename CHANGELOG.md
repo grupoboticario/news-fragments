@@ -1,3 +1,14 @@
+[//]: # "s-1.9.0"
+
+# [1.9.0] - (2020-12-15)
+
+## Features
+
+- Create a flag to preview a previously created CHANGELOG.
+- Adds a metadata in between the generated changelog in order to preview correctly works.
+
+[//]: # "e-1.9.0"
+
 # [1.8.0] - (2020-12-03)
 
 ## Features

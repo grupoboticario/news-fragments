@@ -1,1 +1,0 @@
-Adds a metadata in between the generated changelog in order to preview correctly works.

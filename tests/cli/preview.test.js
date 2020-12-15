@@ -9,11 +9,18 @@ afterEach(() => {
 
 const FAKE_DATE = "2019-05-14T11:01:58.135Z";
 
-const fakeChangelog = `# [1.0.2] - (2020-03-11)
+const fakeChangelog = `
+[//]: # (start 1.0.2)
+
+# [1.0.2] - (2020-03-11)
 
 ## Bugfixes
 
 - Remove &#x60;getLatestVersion&#x60; method from NewsFragments.
+
+[//]: # (end 1.0.2)
+
+[//]: # (start 1.0.1)
 
 # [1.0.1] - (2020-03-11)
 
@@ -21,11 +28,18 @@ const fakeChangelog = `# [1.0.2] - (2020-03-11)
 
 - Remove method &#x60;getName&#x60; from NewsFragments plugin.
 
+[//]: # (end 1.0.1)
+
+[//]: # (start 1.0.0)
+
 # [1.0.0] - (2020-03-11)
 
 ## Features
 
-- First release! 🚀`;
+- First release! 🚀
+
+[//]: # (end 1.0.0)
+`;
 
 test("should only return date when there are no fragments", async () => {
   MockDate.set(FAKE_DATE);

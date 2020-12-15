@@ -12,17 +12,17 @@ marked.setOptions({
 module.exports.preview = function (inputs, flags) {
   if (!!flags && flags.previousVersion) {
     const previousVersionRegex = new RegExp(
-      `# \\[${flags.previousVersion}\\] - \\(.*\\)([^\\[]+)\\.`
+      `(\\[\\/\\/\\]: # \\(start ${flags.previousVersion}\\))[\\s\\S]*(\\[\\/\\/\\]: # \\(end ${flags.previousVersion}\\))`
     );
 
     const changelogContent = getChangelogContent(newsFragmentsUserConfig);
-    const output = marked(
+    const previousOutput = marked(
       (changelogContent.match(previousVersionRegex) || [""])[0]
     );
 
-    process.stdout.write(output);
+    process.stdout.write(previousOutput);
 
-    return output;
+    return previousOutput;
   }
 
   const newsFragments = getFragments(newsFragmentsUserConfig);

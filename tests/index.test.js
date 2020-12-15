@@ -36,14 +36,14 @@ test("should delete fragments when generated changelog", () => {
   const version = pjson.version;
   const date = moment().format("YYYY-MM-DD");
   const expectedOutput = `
-[//]: # (start 1.8.0)
+[//]: # (s-1.8.0)
   
 # [${version}] - (${date})
 
 ## Features
 * Coleta com sucesso
 
-[//]: # (end 1.8.0)
+[//]: # (e-1.8.0)
 
 `;
   newsFragments.init();

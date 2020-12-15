@@ -32,7 +32,7 @@ const mockData = {
 };
 
 const expectedOutput = `
-[//]: # (start 0.0.2)
+[//]: # (s-0.0.2)
   
 # [0.0.2] - (${TODAY})
 
@@ -43,7 +43,7 @@ const expectedOutput = `
 ## Bugfix
 * Update auth function to work properly when JWT is null
 
-[//]: # (end 0.0.2)
+[//]: # (e-0.0.2)
 
 `;
 
@@ -69,7 +69,7 @@ test("should write in an empty file", () => {
   const renderedTemplate = renderTemplate(changelogTemplate, mockData, "0.0.2");
   saveChangelogToFile(changelogFile, renderedTemplate);
   expect(fs.readFileSync(changelogFile).toString()).toStrictEqual(`
-[//]: # (start 0.0.2)
+[//]: # (s-0.0.2)
   
 # [0.0.2] - (${TODAY})
 
@@ -80,7 +80,7 @@ test("should write in an empty file", () => {
 ## Bugfix
 * Update auth function to work properly when JWT is null
 
-[//]: # (end 0.0.2)
+[//]: # (e-0.0.2)
 
 `);
 });
@@ -93,7 +93,7 @@ test("should prepend in a file with content", () => {
   saveChangelogToFile(changelogFile, renderedTemplate);
   const data = fs.readFileSync(changelogFile);
   expect(data.toString()).toStrictEqual(`
-[//]: # (start 0.0.2)
+[//]: # (s-0.0.2)
   
 # [0.0.2] - (${TODAY})
 
@@ -104,7 +104,7 @@ test("should prepend in a file with content", () => {
 ## Bugfix
 * Update auth function to work properly when JWT is null
 
-[//]: # (end 0.0.2)
+[//]: # (e-0.0.2)
 
 matheuszin_reidelas2011@hotmail.com`);
 });

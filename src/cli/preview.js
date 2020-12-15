@@ -12,7 +12,7 @@ marked.setOptions({
 module.exports.preview = function (inputs, flags) {
   if (!!flags && flags.previousVersion) {
     const previousVersionRegex = new RegExp(
-      `(\\[\\/\\/\\]: # \\(start ${flags.previousVersion}\\))[\\s\\S]*(\\[\\/\\/\\]: # \\(end ${flags.previousVersion}\\))`
+      `(\\[\\/\\/\\]: # \\(s-${flags.previousVersion}\\))[\\s\\S]*(\\[\\/\\/\\]: # \\(e-${flags.previousVersion}\\))`
     );
 
     const changelogContent = getChangelogContent(newsFragmentsUserConfig);

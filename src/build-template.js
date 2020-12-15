@@ -4,10 +4,10 @@ const moment = require("moment");
 
 function injectMetadata(compiledTemplate, version) {
   return `
-[//]: # (start ${version})
+[//]: # (s-${version})
   
 ${compiledTemplate}
-[//]: # (end ${version})
+[//]: # (e-${version})
 
 `;
 }

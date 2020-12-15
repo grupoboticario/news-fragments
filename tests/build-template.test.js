@@ -31,7 +31,10 @@ const mockData = {
   ],
 };
 
-const expectedOutput = `# [0.0.2] - (${TODAY})
+const expectedOutput = `
+[//]: # (start 0.0.2)
+  
+# [0.0.2] - (${TODAY})
 
 ## Feature
 * Implements JWT handler
@@ -39,6 +42,9 @@ const expectedOutput = `# [0.0.2] - (${TODAY})
 
 ## Bugfix
 * Update auth function to work properly when JWT is null
+
+[//]: # (end 0.0.2)
+
 `;
 
 beforeEach(() => {
@@ -62,8 +68,10 @@ test("should write in an empty file", () => {
   });
   const renderedTemplate = renderTemplate(changelogTemplate, mockData, "0.0.2");
   saveChangelogToFile(changelogFile, renderedTemplate);
-  expect(fs.readFileSync(changelogFile).toString())
-    .toStrictEqual(`# [0.0.2] - (${TODAY})
+  expect(fs.readFileSync(changelogFile).toString()).toStrictEqual(`
+[//]: # (start 0.0.2)
+  
+# [0.0.2] - (${TODAY})
 
 ## Feature
 * Implements JWT handler
@@ -71,6 +79,9 @@ test("should write in an empty file", () => {
 
 ## Bugfix
 * Update auth function to work properly when JWT is null
+
+[//]: # (end 0.0.2)
+
 `);
 });
 
@@ -81,7 +92,10 @@ test("should prepend in a file with content", () => {
   const renderedTemplate = renderTemplate(changelogTemplate, mockData, "0.0.2");
   saveChangelogToFile(changelogFile, renderedTemplate);
   const data = fs.readFileSync(changelogFile);
-  expect(data.toString()).toStrictEqual(`# [0.0.2] - (${TODAY})
+  expect(data.toString()).toStrictEqual(`
+[//]: # (start 0.0.2)
+  
+# [0.0.2] - (${TODAY})
 
 ## Feature
 * Implements JWT handler
@@ -89,6 +103,9 @@ test("should prepend in a file with content", () => {
 
 ## Bugfix
 * Update auth function to work properly when JWT is null
+
+[//]: # (end 0.0.2)
+
 matheuszin_reidelas2011@hotmail.com`);
 });
 

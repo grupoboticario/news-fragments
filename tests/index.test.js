@@ -35,10 +35,16 @@ test("should collect a fragment when running init method", () => {
 test("should delete fragments when generated changelog", () => {
   const version = pjson.version;
   const date = moment().format("YYYY-MM-DD");
-  const expectedOutput = `# [${version}] - (${date})
+  const expectedOutput = `
+[//]: # (s-${version})
+  
+# [${version}] - (${date})
 
 ## Features
 * Coleta com sucesso
+
+[//]: # (e-${version})
+
 `;
   newsFragments.init();
   newsFragments.bump(version);

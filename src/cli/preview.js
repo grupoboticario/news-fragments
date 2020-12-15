@@ -36,7 +36,8 @@ module.exports.preview = function (inputs, flags) {
 
   const renderedTemplate = renderTemplate(
     newsFragmentsUserConfig.changelogTemplate,
-    templateData
+    templateData,
+    version
   );
 
   const output = marked(renderedTemplate);

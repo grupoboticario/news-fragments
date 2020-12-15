@@ -52,7 +52,7 @@ afterEach(() => {
 });
 
 test("should render correctly the template", () => {
-  const result = renderTemplate(changelogTemplate, mockData);
+  const result = renderTemplate(changelogTemplate, mockData, "0.0.2");
   expect(result).toStrictEqual(expectedOutput);
 });
 
@@ -60,7 +60,7 @@ test("should write in an empty file", () => {
   mockFs({
     "CHANGELOG.md": "",
   });
-  const renderedTemplate = renderTemplate(changelogTemplate, mockData);
+  const renderedTemplate = renderTemplate(changelogTemplate, mockData, "0.0.2");
   saveChangelogToFile(changelogFile, renderedTemplate);
   expect(fs.readFileSync(changelogFile).toString())
     .toStrictEqual(`# [0.0.2] - (${TODAY})
@@ -78,7 +78,7 @@ test("should prepend in a file with content", () => {
   mockFs({
     "CHANGELOG.md": "matheuszin_reidelas2011@hotmail.com",
   });
-  const renderedTemplate = renderTemplate(changelogTemplate, mockData);
+  const renderedTemplate = renderTemplate(changelogTemplate, mockData, "0.0.2");
   saveChangelogToFile(changelogFile, renderedTemplate);
   const data = fs.readFileSync(changelogFile);
   expect(data.toString()).toStrictEqual(`# [0.0.2] - (${TODAY})

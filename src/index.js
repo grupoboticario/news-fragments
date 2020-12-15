@@ -29,7 +29,8 @@ class NewsFragments extends Plugin {
     );
     const renderedTemplate = renderTemplate(
       newsFragmentsUserConfig.changelogTemplate,
-      templateData
+      templateData,
+      version
     );
     saveChangelogToFile(
       newsFragmentsUserConfig.changelogFile,

@@ -47,7 +47,7 @@
     "handlebars": "^4.7.6",
     "marked": "^1.2.5",
     "marked-terminal": "^4.1.0",
-    "meow": "^8.0.0",
+    "meow": "^9.0.0",
     "moment": "^2.29.1",
     "release-it": "^14.2.2"
   },

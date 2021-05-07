@@ -1,6 +1,9 @@
 name: "[PUBLISH] NewsFragments"
 
-on: [push]
+on:
+  push:
+    tags:
+      - "*"
 
 jobs:
   npm-publish:

@@ -28,13 +28,13 @@
   "homepage": "https://github.com/grupoboticario/news-fragments#readme",
   "devDependencies": {
     "@release-it/bumper": "^2.0.0",
-    "eslint": "^7.25.0",
+    "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "jest": "^26.6.3",
     "mock-fs": "^4.14.0",
     "mockdate": "^3.0.5",
-    "prettier": "^2.2.1",
+    "prettier": "^2.3.0",
     "pretty-quick": "^3.1.0",
     "semver": "^7.3.5",
     "sinon": "^10.0.0"
@@ -48,7 +48,7 @@
     "marked-terminal": "^4.1.1",
     "meow": "^10.0.0",
     "moment": "^2.29.1",
-    "release-it": "^14.6.1"
+    "release-it": "^14.6.2"
   },
   "engines": {
     "node": ">=8"

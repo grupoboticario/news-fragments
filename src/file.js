@@ -25,7 +25,8 @@ const getFragmentsContent = function (fragmentsFiles) {
 };
 
 module.exports.getFragmentsContent = getFragmentsContent;
-module.exports.getFragmentsFilesByFragmentType = getFragmentsFilesByFragmentType;
+module.exports.getFragmentsFilesByFragmentType =
+  getFragmentsFilesByFragmentType;
 
 module.exports.deleteFragmentsFiles = function (fragmentsFiles) {
   fragmentsFiles.forEach((file) => {
@@ -51,9 +52,8 @@ module.exports.getFragments = function (newsFragmentsConfig) {
     if (files.length > 0) {
       const contents = getFragmentsContent(files);
 
-      newsFragments.fragmentsToDelete = newsFragments.fragmentsToDelete.concat(
-        files
-      );
+      newsFragments.fragmentsToDelete =
+        newsFragments.fragmentsToDelete.concat(files);
       newsFragments.fragmentsToBurn.push({
         title: fragmentType.title,
         fragmentEntries: contents,

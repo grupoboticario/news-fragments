@@ -6,13 +6,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node: ["14.x", "15.x"]
+
     steps:
       - uses: actions/checkout@v1
 
-      - name: Setup node 15.x
+      - name: Setup node ${{ matrix.run }}
         uses: actions/setup-node@v1
         with:
-          node-version: 15.x
+          node-version: ${{ matrix.run }}
 
       - name: Get npm cache directory
         id: npm-cache

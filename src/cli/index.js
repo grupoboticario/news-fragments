@@ -1,8 +1,6 @@
 #!/usr/bin/env node
+import meow from "meow";
 
-"use strict";
-const meow = require("meow");
-const chalk = require("chalk");
 const { create } = require("./create");
 const { preview } = require("./preview");
 const { burn } = require("./burn");

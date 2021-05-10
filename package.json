@@ -3,6 +3,7 @@
   "version": "1.9.2",
   "description": "A release-it plugin to manipulate changelogs",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "test": "jest --detectOpenHandles --collectCoverage --runInBand --verbose --forceExit",
     "lint": "eslint \"**/*.js\" --ignore-pattern node_modules/",

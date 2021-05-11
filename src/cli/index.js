@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 "use strict";
+const { pathToFileURL } = require("url");
 const { create } = require("./create");
 const { preview } = require("./preview");
 const { burn } = require("./burn");
@@ -24,7 +25,7 @@ import('meow').then(meow => {  // eslint-disable-line
     $ news-fragments preview -p 0.0.1
 `,
     {
-      importMeta: { url: `file://${__filename}` },
+      importMeta: { url: pathToFileURL(__filename).toString() },
       flags: {
         previousVersion: {
           type: "string",

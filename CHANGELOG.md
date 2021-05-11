@@ -1,4 +1,20 @@
 
+[//]: # (s-1.10.0)
+  
+# [1.10.0] - (2021-05-11)
+
+## Features
+* Improve npm publish flow.
+
+## Bugfixes
+* Use dynamic import for meow ESM package.
+
+## Misc
+* Update dependencies.
+
+[//]: # (e-1.10.0)
+
+
 [//]: # (s-1.9.2)
   
 # [1.9.2] - (2021-05-07)

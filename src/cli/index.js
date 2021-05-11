@@ -1,14 +1,13 @@
 #!/usr/bin/env node
 
 "use strict";
-const meow = require("meow");
-const chalk = require("chalk");
 const { create } = require("./create");
 const { preview } = require("./preview");
 const { burn } = require("./burn");
 
-const cli = meow(
-  `
+import('meow').then(meow => {  // eslint-disable-line
+  const cli = meow.default(
+    `
 	Usage
     $ news-fragments create <fragment-type> <fragment-text>
     $ news-fragments preview
@@ -24,26 +23,28 @@ const cli = meow(
     $ news-fragments preview
     $ news-fragments preview -p 0.0.1
 `,
-  {
-    flags: {
-      previousVersion: {
-        type: "string",
-        alias: "p",
+    {
+      importMeta: { url: `file://${__filename}` },
+      flags: {
+        previousVersion: {
+          type: "string",
+          alias: "p",
+        },
       },
-    },
+    }
+  );
+
+  const commands = {
+    create: create,
+    preview: preview,
+    burn: burn,
+  };
+
+  const command = commands[cli.input[0]];
+
+  if (command !== undefined) {
+    command(cli.input, cli.flags);
+  } else {
+    cli.showHelp(0);
   }
-);
-
-const commands = {
-  create: create,
-  preview: preview,
-  burn: burn,
-};
-
-const command = commands[cli.input[0]];
-
-if (command !== undefined) {
-  command(cli.input, cli.flags);
-} else {
-  cli.showHelp(0);
-}
+});

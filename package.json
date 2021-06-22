@@ -1,5 +1,5 @@
 {
-  "name": "@grupoboticario/news-fragments",
+  "name": "news-fragments",
   "version": "1.12.0",
   "description": "A release-it plugin to manipulate changelogs",
   "main": "src/index.js",

@@ -1,3 +1,9 @@
+
+# <span style="color:red">This package was moved to</span>
+This package was moved to <https://www.npmjs.com/package/news-fragments>
+
+
+
 <p align="center">
    <img src="./changelog.png" alt="Logo" title="Logo" />
 </p>

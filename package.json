@@ -1,6 +1,6 @@
 {
   "name": "news-fragments",
-  "version": "1.13.0",
+  "version": "1.13.1",
   "description": "A release-it plugin to manipulate changelogs",
   "main": "src/index.js",
   "scripts": {

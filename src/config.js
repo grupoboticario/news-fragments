@@ -1,5 +1,5 @@
 const Config = require("release-it/lib/config");
-const Joi = require("@hapi/joi");
+const Joi = require("joi");
 
 const globalConfig = new Config();
 

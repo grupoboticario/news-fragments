@@ -16,7 +16,7 @@ Basically, you need to specify a folder to be your center of fragments that will
 
 ## Setup
 
-In [release-it](https://github.com/release-it/release-it) config at `package.json`, create a `@grupoboticario/news-fragments` key-pair to override the default config - e.g.
+In [release-it](https://github.com/release-it/release-it) config at `package.json`, create a `news-fragments` key-pair to override the default config - e.g.
 
 ```json
 "plugins": {

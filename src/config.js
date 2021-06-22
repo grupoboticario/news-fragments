@@ -59,5 +59,5 @@ const retrieveUserConfig = function (config, name) {
 module.exports.retrieveUserConfig = retrieveUserConfig;
 module.exports.buildConfig = buildConfig;
 module.exports.newsFragmentsUserConfig = buildConfig(
-  retrieveUserConfig(globalConfig, "@grupoboticario/news-fragments")
+  retrieveUserConfig(globalConfig, "news-fragments")
 );

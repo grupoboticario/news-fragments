@@ -20,7 +20,7 @@ In [release-it](https://github.com/release-it/release-it) config at `package.jso
 
 ```json
 "plugins": {
-  "@grupoboticario/news-fragments": {}
+  "news-fragments": {}
 }
 ```
 

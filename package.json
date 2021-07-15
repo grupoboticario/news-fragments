@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/grupoboticario/news-fragments#readme",
   "devDependencies": {
-    "@release-it/bumper": "^2.0.0",
+    "@release-it/bumper": "^3.0.0",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",

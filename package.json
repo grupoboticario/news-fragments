@@ -44,6 +44,7 @@
     "fs-extra": "^10.0.0",
     "handlebars": "^4.7.7",
     "joi": "^17.4.2",
+    "marked": "^3.0.7",
     "marked-terminal": "^4.2.0",
     "meow": "^10.1.1",
     "moment": "^2.29.1",

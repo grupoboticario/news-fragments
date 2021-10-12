@@ -13,9 +13,9 @@ jobs:
       - uses: actions/setup-node@v2.4.1
         with:
           node-version: 15.x
-      - run: npm install
-      - run: npm run lint
-      - run: npm test
+      - run: yarn install
+      - run: yarn run lint
+      - run: yarn run test
       - id: "publish"
         uses: JS-DevTools/npm-publish@v1
         with:

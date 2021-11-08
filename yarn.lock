@@ -3301,10 +3301,10 @@ marked-terminal@^4.2.0:
     node-emoji "^1.10.0"
     supports-hyperlinks "^2.1.0"
 
-marked@^3.0.7:
-  version "3.0.8"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-3.0.8.tgz#2785f0dc79cbdc6034be4bb4f0f0a396bd3f8aeb"
-  integrity sha512-0gVrAjo5m0VZSJb4rpL59K1unJAMb/hm8HRXqasD8VeC8m91ytDPMritgFSlKonfdt+rRYYpP/JfLxgIX8yoSw==
+marked@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-4.0.0.tgz#fd4ff16f6b99fbe6beb729f2077ea717d0ec4edb"
+  integrity sha512-K3C1JvtiXuXVLoxDQEJP4NMLBuThlTkthgUOCzqLghIpHfis1DIZZfPI3o4UgfFpQ0d+JvTql2h+szR9jQ1p1w==
 
 meow@^10.1.1:
   version "10.1.1"

@@ -3307,9 +3307,9 @@ marked@^3.0.7:
   integrity sha512-0gVrAjo5m0VZSJb4rpL59K1unJAMb/hm8HRXqasD8VeC8m91ytDPMritgFSlKonfdt+rRYYpP/JfLxgIX8yoSw==
 
 meow@^10.1.1:
-  version "10.1.1"
-  resolved "https://registry.yarnpkg.com/meow/-/meow-10.1.1.tgz#87fa665f18e727024116d456e725f69033ca6d8f"
-  integrity sha512-uzOAEBTGujHAD6bVzIQQk5kDTgatxmpVmr1pj9QhwsHLEG2AiB+9F08/wmjrZIk4h5pWxERd7+jqGZywYx3ZFw==
+  version "10.1.2"
+  resolved "https://registry.yarnpkg.com/meow/-/meow-10.1.2.tgz#62951cb69afa69594142c8250806bc30a3912e4d"
+  integrity sha512-zbuAlN+V/sXlbGchNS9WTWjUzeamwMt/BApKCJi7B0QyZstZaMx0n4Unll/fg0njGtMdC9UP5SAscvOCLYdM+Q==
   dependencies:
     "@types/minimist" "^1.2.2"
     camelcase-keys "^7.0.0"

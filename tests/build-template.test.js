@@ -1,13 +1,13 @@
-const {
+import {
   renderTemplate,
   generateTemplateData,
   saveChangelogToFile,
-} = require("../src/build-template");
-const { buildConfig } = require("../src/config");
+} from "../src/build-template";
+import { buildConfig } from "../src/config";
 
-const fs = require("fs-extra");
-const mockFs = require("mock-fs");
-const moment = require("moment");
+import fs from "fs-extra";
+import mockFs from "mock-fs";
+import moment from "moment";
 
 let changelogTemplate;
 let changelogFile;

@@ -1,5 +1,5 @@
-const NewsFragments = require("./src");
-const pjson = require("./package.json");
+import NewsFragments from "./src";
+import pjson from "./package.json";
 
 const newsFragments = new NewsFragments();
 

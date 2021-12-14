@@ -1,8 +1,8 @@
-const { create } = require("../../src/cli/create");
-const mockFs = require("mock-fs");
-const MockDate = require("mockdate");
-const chalk = require("chalk");
-const fs = require("fs");
+import { create } from "../../src/cli/create";
+import mockFs from "mock-fs";
+import MockDate from "mockdate";
+import chalkTemplate from "chalk-template";
+import { readFileSync, unlinkSync } from "fs";
 
 mockFs({
   fragments: {},
@@ -28,7 +28,7 @@ test("should return success message when create a fragment", async () => {
 test("should return error message when try to create a fragment file", async () => {
   const result = create(["create", "doidera"]);
 
-  const expected = chalk`Fragment type {red doidera} is invalid.
+  const expected = chalkTemplate`Fragment type {red doidera} is invalid.
 Choose one of available fragment types: {green feature,bugfix,doc,removal,misc}`;
 
   expect(result).toStrictEqual(expected);
@@ -37,7 +37,7 @@ Choose one of available fragment types: {green feature,bugfix,doc,removal,misc}`
 test("should append dot at end of changelog message", async () => {
   create(["create", "feature", "a changelog message"]);
 
-  const contents = fs.readFileSync("fragments/1557831718135.feature", "utf8");
+  const contents = readFileSync("fragments/1557831718135.feature", "utf8");
   expect(contents).toStrictEqual("a changelog message.");
 });
 
@@ -46,9 +46,9 @@ test.each(["", "message."])(
   async (message) => {
     create(["create", "feature", message]);
 
-    const contents = fs.readFileSync("fragments/1557831718135.feature", "utf8");
+    const contents = readFileSync("fragments/1557831718135.feature", "utf8");
 
     expect(contents).toStrictEqual(message);
-    fs.unlinkSync("fragments/1557831718135.feature");
+    unlinkSync("fragments/1557831718135.feature");
   }
 );

@@ -1,9 +1,10 @@
-const fs = require("fs");
-const path = require("path");
-const chalk = require("chalk");
+import { writeFileSync } from "fs";
+import { join } from "path";
+import chalkTemplate from "chalk-template";
+import chalk from "chalk";
 
-const { newsFragmentsUserConfig } = require("../config");
-const { checkFragmentsFolder } = require("../helpers");
+import { newsFragmentsUserConfig } from "../config";
+import { checkFragmentsFolder } from "../helpers";
 
 const availableFragmentTypes = newsFragmentsUserConfig.fragmentsTypes.map(
   function (el) {
@@ -11,13 +12,13 @@ const availableFragmentTypes = newsFragmentsUserConfig.fragmentsTypes.map(
   }
 );
 
-module.exports.create = function (inputs, flags) {
+export const create = function (inputs, flags) {
   const fragmentType = inputs[1];
   let fragmentText = inputs[2] || "";
   let message = "";
 
   if (!availableFragmentTypes.includes(fragmentType)) {
-    message = chalk`Fragment type {red ${fragmentType}} is invalid.
+    message = chalkTemplate`Fragment type {red ${fragmentType}} is invalid.
 Choose one of available fragment types: {green ${availableFragmentTypes}}`;
 
     process.stdout.write(message);
@@ -26,7 +27,7 @@ Choose one of available fragment types: {green ${availableFragmentTypes}}`;
   }
 
   const fragmentsFolder = newsFragmentsUserConfig.fragmentsFolder;
-  const filename = path.join(fragmentsFolder, `${+new Date()}.${fragmentType}`);
+  const filename = join(fragmentsFolder, `${+new Date()}.${fragmentType}`);
 
   checkFragmentsFolder(fragmentsFolder);
 
@@ -34,7 +35,7 @@ Choose one of available fragment types: {green ${availableFragmentTypes}}`;
     fragmentText = `${fragmentText}.`;
   }
 
-  fs.writeFileSync(filename, fragmentText);
+  writeFileSync(filename, fragmentText);
 
   message = `Fragment ${filename} created with success!`;
 

@@ -1,8 +1,8 @@
-const { buildConfig, retrieveUserConfig } = require("../src/config");
-const Config = require("release-it/lib/config");
+import { buildConfig, retrieveUserConfig } from "../src/config";
+import Config from "release-it/lib/config";
 
 test("should return a base config", async () => {
-  config = buildConfig({});
+  const config = buildConfig({});
 
   expect(config.changelogFile).toBe("CHANGELOG.md");
   expect(config.changelogDateFormat).toBe("YYYY-MM-DD");

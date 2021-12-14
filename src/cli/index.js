@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 "use strict";
-const { pathToFileURL } = require("url");
-const { create } = require("./create");
-const { preview } = require("./preview");
-const { burn } = require("./burn");
+import { pathToFileURL } from "url";
+import { create } from "./create";
+import { preview } from "./preview";
+import { burn } from "./burn";
 
 import('meow').then(meow => {  // eslint-disable-line
   const cli = meow.default(

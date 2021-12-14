@@ -1,13 +1,13 @@
-const fs = require("fs-extra");
-const path = require("path");
+import fs from "fs-extra";
+import path from "path";
 
-module.exports.checkChangelogFile = function (changelogFile) {
+export const checkChangelogFile = function (changelogFile) {
   if (!fs.existsSync(changelogFile)) {
     fs.writeFileSync(changelogFile, "");
   }
 };
 
-module.exports.checkFragmentsFolder = function (fragmentsFolder) {
+export const checkFragmentsFolder = function (fragmentsFolder) {
   const fragmentsPath = path.join(fragmentsFolder, ".gitkeep");
   if (!fs.existsSync(fragmentsPath)) {
     fs.outputFileSync(fragmentsPath, "");

@@ -1,6 +1,6 @@
-const { preview } = require("../../src/cli/preview");
-const mockFs = require("mock-fs");
-const MockDate = require("mockdate");
+import { preview } from "../../src/cli/preview";
+import mockFs from "mock-fs";
+import MockDate from "mockdate";
 
 afterEach(() => {
   mockFs.restore();
@@ -41,7 +41,7 @@ const fakeChangelog = `
 [//]: # (e-1.0.0)
 `;
 
-test("should only return date when there are no fragments", async () => {
+test("should only return date when there are no fragments", () => {
   MockDate.set(FAKE_DATE);
 
   mockFs({
@@ -58,7 +58,7 @@ test("should only return date when there are no fragments", async () => {
   expect(result).not.toContain("## Misc");
 });
 
-test("should return data from fragments", async () => {
+test("should return data from fragments", () => {
   MockDate.set(FAKE_DATE);
 
   mockFs({
@@ -74,7 +74,7 @@ test("should return data from fragments", async () => {
   expect(result).toContain("My feature");
 });
 
-test("should return a previous version", async () => {
+test("should return a previous version", () => {
   MockDate.set(FAKE_DATE);
 
   mockFs({

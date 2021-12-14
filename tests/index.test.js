@@ -1,9 +1,9 @@
-const fs = require("fs-extra");
-const mockFs = require("mock-fs");
-const moment = require("moment");
-const Plugin = require("../src/index");
-const pjson = require("../package.json");
-const { newsFragmentsUserConfig } = require("../src/config");
+import fs from "fs-extra";
+import moment from "moment";
+import mockFs from "mock-fs";
+import Plugin from "../src/index";
+import pjson from "../package.json";
+import { newsFragmentsUserConfig } from "../src/config";
 
 let newsFragments;
 

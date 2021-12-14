@@ -1,13 +1,12 @@
-const {
+import {
   getFragmentsFilesByFragmentType,
   getFragmentsContent,
   deleteFragmentsFiles,
-  getFragments,
   getChangelogContent,
-} = require("../src/file");
+} from "../src/file";
 
-const fs = require("fs-extra");
-const mockFs = require("mock-fs");
+import fs from "fs-extra";
+import mockFs from "mock-fs";
 
 beforeEach(() => {
   mockFs({

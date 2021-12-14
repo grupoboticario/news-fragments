@@ -1,5 +1,5 @@
-const Config = require("release-it/lib/config");
-const Joi = require("joi");
+import Config from "release-it/lib/config";
+import Joi from "joi";
 
 const globalConfig = new Config();
 
@@ -40,7 +40,7 @@ const baseConfig = {
   ],
 };
 
-const buildConfig = function (config) {
+export const buildConfig = function (config) {
   const newsFragmentConfiguration = Object.assign({}, baseConfig, config);
 
   const { error } = schema.validate(newsFragmentConfiguration);
@@ -52,12 +52,10 @@ const buildConfig = function (config) {
   return newsFragmentConfiguration;
 };
 
-const retrieveUserConfig = function (config, name) {
+export const retrieveUserConfig = function (config, name) {
   return config.getContext(`plugins.${name}`) || null;
 };
 
-module.exports.retrieveUserConfig = retrieveUserConfig;
-module.exports.buildConfig = buildConfig;
-module.exports.newsFragmentsUserConfig = buildConfig(
+export const newsFragmentsUserConfig = buildConfig(
   retrieveUserConfig(globalConfig, "news-fragments")
 );

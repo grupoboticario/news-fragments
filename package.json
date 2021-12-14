@@ -1,10 +1,11 @@
 {
   "name": "news-fragments",
+  "type": "module",
   "version": "1.14.2",
   "description": "A release-it plugin to manipulate changelogs",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest --detectOpenHandles --collectCoverage --runInBand --verbose --forceExit",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles --collectCoverage --runInBand --verbose --forceExit",
     "lint": "eslint \"**/*.js\" --ignore-pattern node_modules/",
     "lint:fix": "eslint --fix \"**/*.js\" --ignore-pattern node_modules/",
     "release": "release-it"
@@ -36,22 +37,22 @@
     "mockdate": "^3.0.5",
     "prettier": "^2.4.1",
     "pretty-quick": "^3.1.1",
-    "semver": "^7.3.5",
-    "sinon": "^12.0.1"
+    "semver": "^7.3.5"
   },
   "dependencies": {
-    "chalk": "^4.1.2",
+    "chalk": "^5.0.0",
+    "chalk-template": "^0.2.0",
     "fs-extra": "^10.0.0",
     "handlebars": "^4.7.7",
     "joi": "^17.4.2",
-    "marked": "^3.0.7",
-    "marked-terminal": "^4.2.0",
+    "marked": "^4.0.7",
+    "marked-terminal": "^5.0.0",
     "meow": "^10.1.1",
     "moment": "^2.29.1",
     "release-it": "^14.11.5"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=14"
   },
   "release-it": {
     "npm": false,
@@ -79,7 +80,7 @@
     "news-fragments": "src/cli/index.js"
   },
   "volta": {
-    "node": "17.0.0",
+    "node": "17.2.0",
     "yarn": "1.22.17"
   }
 }

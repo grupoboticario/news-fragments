@@ -1,9 +1,9 @@
-var fs = require("fs-extra");
-var path = require("path");
+import fs from "fs-extra";
+import path from "path";
 
-const { checkChangelogFile } = require("./helpers");
+import { checkChangelogFile } from "./helpers";
 
-const getFragmentsFilesByFragmentType = function (
+export const getFragmentsFilesByFragmentType = function (
   fragmentsFolder,
   fragmentType
 ) {
@@ -18,23 +18,19 @@ const getFragmentsFilesByFragmentType = function (
   });
 };
 
-const getFragmentsContent = function (fragmentsFiles) {
+export const getFragmentsContent = function (fragmentsFiles) {
   return fragmentsFiles.map((file) => {
     return fs.readFileSync(file, "utf8").replace("\n", "");
   });
 };
 
-module.exports.getFragmentsContent = getFragmentsContent;
-module.exports.getFragmentsFilesByFragmentType =
-  getFragmentsFilesByFragmentType;
-
-module.exports.deleteFragmentsFiles = function (fragmentsFiles) {
+export const deleteFragmentsFiles = function (fragmentsFiles) {
   fragmentsFiles.forEach((file) => {
     fs.unlinkSync(file);
   });
 };
 
-module.exports.getFragments = function (newsFragmentsConfig) {
+export const getFragments = function (newsFragmentsConfig) {
   const fragmentsTypes = newsFragmentsConfig.fragmentsTypes;
   const fragmentsFolder = newsFragmentsConfig.fragmentsFolder;
 
@@ -64,7 +60,7 @@ module.exports.getFragments = function (newsFragmentsConfig) {
   return newsFragments;
 };
 
-module.exports.getChangelogContent = function (newsFragmentsConfig) {
+export const getChangelogContent = function (newsFragmentsConfig) {
   const changelogPath = newsFragmentsConfig.changelogFile;
   checkChangelogFile(changelogPath);
 

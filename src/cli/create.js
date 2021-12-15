@@ -3,8 +3,8 @@ import { join } from "path";
 import chalkTemplate from "chalk-template";
 import chalk from "chalk";
 
-import { newsFragmentsUserConfig } from "../config";
-import { checkFragmentsFolder } from "../helpers";
+import { newsFragmentsUserConfig } from "../config.js";
+import { checkFragmentsFolder } from "../helpers.js";
 
 const availableFragmentTypes = newsFragmentsUserConfig.fragmentsTypes.map(
   function (el) {

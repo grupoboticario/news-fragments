@@ -1,4 +1,4 @@
-import Config from "release-it/lib/config";
+import Config from "release-it/lib/config.js";
 import Joi from "joi";
 
 const globalConfig = new Config();

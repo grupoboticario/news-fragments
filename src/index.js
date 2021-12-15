@@ -2,10 +2,10 @@ import {
   generateTemplateData,
   renderTemplate,
   saveChangelogToFile,
-} from "./build-template";
-import { newsFragmentsUserConfig } from "./config";
-import { checkChangelogFile, checkFragmentsFolder } from "./helpers";
-import { getFragments, deleteFragmentsFiles } from "./file";
+} from "./build-template.js";
+import { newsFragmentsUserConfig } from "./config.js";
+import { checkChangelogFile, checkFragmentsFolder } from "./helpers.js";
+import { getFragments, deleteFragmentsFiles } from "./file.js";
 import { Plugin } from "release-it";
 
 class NewsFragments extends Plugin {

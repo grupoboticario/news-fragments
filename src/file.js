@@ -1,7 +1,7 @@
 import fs from "fs-extra";
 import path from "path";
 
-import { checkChangelogFile } from "./helpers";
+import { checkChangelogFile } from "./helpers.js";
 
 export const getFragmentsFilesByFragmentType = function (
   fragmentsFolder,

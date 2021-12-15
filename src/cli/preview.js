@@ -1,6 +1,6 @@
-import { newsFragmentsUserConfig } from "../config";
-import { getFragments, getChangelogContent } from "../file";
-import { generateTemplateData, renderTemplate } from "../build-template";
+import { newsFragmentsUserConfig } from "../config.js";
+import { getFragments, getChangelogContent } from "../file.js";
+import { generateTemplateData, renderTemplate } from "../build-template.js";
 import { marked } from "marked";
 import TerminalRenderer from "marked-terminal";
 

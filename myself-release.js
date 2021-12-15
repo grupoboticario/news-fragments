@@ -1,5 +1,5 @@
-import NewsFragments from "./src";
-import pjson from "./package.json";
+import NewsFragments from "./src/index.js";
+import pjson from "./package.json" assert { type: 'json' };
 
 const newsFragments = new NewsFragments();
 

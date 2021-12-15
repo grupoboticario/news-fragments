@@ -1,10 +1,10 @@
-import { newsFragmentsUserConfig } from "../config";
+import { newsFragmentsUserConfig } from "../config.js";
 import {
   generateTemplateData,
   renderTemplate,
   saveChangelogToFile,
-} from "../build-template";
-import { getFragments, deleteFragmentsFiles } from "../file";
+} from "../build-template.js";
+import { getFragments, deleteFragmentsFiles } from "../file.js";
 
 import chalkTemplate from "chalk-template";
 

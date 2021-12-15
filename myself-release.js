@@ -1,5 +1,9 @@
 import NewsFragments from "./src/index.js";
-import pjson from "./package.json" assert { type: 'json' };
+import { readFileSync } from "fs";
+
+const pjson = JSON.parse(
+  readFileSync(new URL("./package.json", import.meta.url))
+);
 
 const newsFragments = new NewsFragments();
 

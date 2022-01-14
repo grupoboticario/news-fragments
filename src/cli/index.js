@@ -25,7 +25,7 @@ import('meow').then(meow => {  // eslint-disable-line
     $ news-fragments preview -p 0.0.1
 `,
     {
-      importMeta: { url: pathToFileURL(__filename).toString() },
+      importMeta: import.meta,
       flags: {
         previousVersion: {
           type: "string",

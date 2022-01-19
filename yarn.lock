@@ -838,10 +838,10 @@
   dependencies:
     "@octokit/openapi-types" "^11.2.0"
 
-"@release-it/bumper@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/@release-it/bumper/-/bumper-3.0.1.tgz"
-  integrity sha512-7VUKnTbXUpMUcxw2JCKGScXvbbIzxz+ZqAJqMoEWO0y6Qee+F1Q3tDNm5X5VTcTM17kZnFuKxdz6sNmy9ww5Bg==
+"@release-it/bumper@^4.0.0-esm.0":
+  version "4.0.0-esm.0"
+  resolved "https://registry.yarnpkg.com/@release-it/bumper/-/bumper-4.0.0-esm.0.tgz#0328df57252a45590defcd3d38cbce57b065d83c"
+  integrity sha512-OZ3Hm1zXdkbum0F/TQG3R8X8w2Q59P+uSvkU4YVYVSnh7lmFGQduE80dSWSGpyV6rFfZ6Uyc+/HARApmELr6uA==
   dependencies:
     "@iarna/toml" "^2.2.5"
     detect-indent "^6.1.0"
@@ -851,7 +851,6 @@
     lodash.castarray "^4.4.0"
     lodash.get "^4.4.2"
     lodash.set "^4.3.2"
-    mock-fs "^4.14.0"
     semver "^7.3.5"
 
 "@sideway/address@^4.1.3":
@@ -3637,11 +3636,6 @@ minimist@^1.2.0, minimist@^1.2.5:
   version "1.2.5"
   resolved "https://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz"
   integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
-
-mock-fs@^4.14.0:
-  version "4.14.0"
-  resolved "https://registry.npmjs.org/mock-fs/-/mock-fs-4.14.0.tgz"
-  integrity sha512-qYvlv/exQ4+svI3UOvPUpLDF0OMX5euvUH0Ny4N5QyRyhNdgAgUrVH3iUINSzEPLvx0kbo/Bp28GJKIqvE7URw==
 
 mock-fs@^5.1.0:
   version "5.1.2"

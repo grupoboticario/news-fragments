@@ -13,7 +13,7 @@ jobs:
     name: SonarCloud Trigger
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.4.0
+      - uses: actions/checkout@v3
 
       - name: Setup node 17.x
         uses: actions/setup-node@v3

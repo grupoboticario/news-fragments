@@ -1475,10 +1475,10 @@ cardinal@^2.1.1:
     ansicolors "~0.3.2"
     redeyed "~2.1.0"
 
-chalk-template@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/chalk-template/-/chalk-template-0.3.1.tgz#9511cd31ec3c4911448410d49645526c1c7a3a22"
-  integrity sha512-sbWkBbb9Tfo81aTtQrfP9eBSVCTL8biVvZ0tA1rH9xqVrKoV2T9Y6Bp94wB+DRXtSGl/UXsgV83Np5hLhNRXww==
+chalk-template@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/chalk-template/-/chalk-template-0.4.0.tgz#692c034d0ed62436b9062c1707fadcd0f753204b"
+  integrity sha512-/ghrgmhfY8RaSdeo43hNXxpoHAtxdbskUHjPpfqUWGttFgycUhYPGx3YZBCnUCvOa7Doivn1IZec3DEGFoMgLg==
   dependencies:
     chalk "^4.1.2"
 

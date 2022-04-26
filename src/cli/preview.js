@@ -2,7 +2,7 @@ const { newsFragmentsUserConfig } = require("../config");
 const { getFragments, getChangelogContent } = require("../file");
 const { generateTemplateData, renderTemplate } = require("../build-template");
 
-var marked = require("marked");
+var { marked } = require("marked");
 var TerminalRenderer = require("marked-terminal");
 
 marked.setOptions({

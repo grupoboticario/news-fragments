@@ -16,7 +16,7 @@ jobs:
       - name: Checkout SAST Assessment Action
         run: git clone git@github.com-fortify-action-sast:grupoboticario/fortify-action-sast.git .github/fortify-action-sast
       - name: Import Secrets
-        uses: hashicorp/vault-action@v2.3.1
+        uses: hashicorp/vault-action@v2.4.0
         with:
           url: https://heimdall.grupoboticario.digital
           token: ${{ secrets.FORTIFY_VAULT_TOKEN }}

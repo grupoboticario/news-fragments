@@ -10,7 +10,7 @@ jobs:
     name: Fortify
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Checkout Application & Version Action
         run: git clone git@github.com-fortify-action-api:grupoboticario/fortify-action-api.git .github/fortify-action-api
       - name: Checkout SAST Assessment Action

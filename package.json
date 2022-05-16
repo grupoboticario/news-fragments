@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/grupoboticario/news-fragments#readme",
   "devDependencies": {
-    "@release-it/bumper": "^3.0.1",
+    "@release-it/bumper": "^4.0.0",
     "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -47,7 +47,7 @@
     "marked-terminal": "^5.1.1",
     "meow": "^10.1.1",
     "moment": "^2.29.1",
-    "release-it": "^14.14.2"
+    "release-it": "^15.0.0"
   },
   "engines": {
     "node": ">=12"

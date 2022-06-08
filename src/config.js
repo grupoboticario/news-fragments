@@ -12,6 +12,7 @@ const schema = Joi.object({
   changelogFile: Joi.string().required(),
   changelogDateFormat: Joi.string().required(),
   changelogTemplate: Joi.string().required(),
+  startString: Joi.string(),
   fragmentsFolder: Joi.string().required(),
   fragmentsTypes: Joi.array().items(fragmentsTypesSchema).required(),
 });

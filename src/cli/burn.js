@@ -43,7 +43,11 @@ Remember to create with {green news-fragments create <fragment-type> <fragment-t
     version
   );
 
-  saveChangelogToFile(newsFragmentsUserConfig.changelogFile, renderedTemplate);
+  saveChangelogToFile(
+    newsFragmentsUserConfig.changelogFile,
+    renderedTemplate,
+    newsFragmentsUserConfig.startString
+  );
   deleteFragmentsFiles(newsFragments.fragmentsToDelete);
 
   message = chalk`${newsFragments.fragmentsToBurn.length} fragments burned in ${newsFragmentsUserConfig.changelogFile}`;

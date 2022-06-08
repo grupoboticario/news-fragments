@@ -24,6 +24,7 @@ In [release-it](https://github.com/release-it/release-it) config at `package.jso
 
 ```json
 {
+  "startString": null,
   "changelogFile": "CHANGELOG.md",
   "changelogDateFormat": "YYYY-MM-DD",
   "changelogTemplate": changelogTemplate,
@@ -34,7 +35,7 @@ In [release-it](https://github.com/release-it/release-it) config at `package.jso
     { "title": "Documentation", "extension": "doc" },
     { "title": "Deprecations and Removals", "extension": "removal" },
     { "title": "Misc", "extension": "misc" }
-  ]
+  ],
 }
 ```
 

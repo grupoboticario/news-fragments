@@ -5,10 +5,9 @@ const moment = require("moment");
 function injectMetadata(compiledTemplate, version) {
   return `
 [//]: # (s-${version})
-  
+
 ${compiledTemplate}
 [//]: # (e-${version})
-
 `;
 }
 
@@ -17,14 +16,37 @@ module.exports.renderTemplate = function (changelogTemplate, data, version) {
   return injectMetadata(compiledTemplate(data), version);
 };
 
-module.exports.saveChangelogToFile = function (filePath, renderedTemplate) {
+module.exports.saveChangelogToFile = function (
+  filePath,
+  renderedTemplate,
+  startString
+) {
   const fileDescriptor = fs.openSync(filePath, "a+");
 
-  const oldData = fs.readFileSync(filePath);
+  let oldData = null;
+  if (startString) {
+    const [oldDataBeforeStartString, oldDataAfterStartString] = fs
+      .readFileSync(filePath)
+      .toString()
+      .split(startString);
+
+    oldData = oldDataAfterStartString;
+  } else {
+    oldData = fs.readFileSync(filePath);
+  }
   const newData = new Buffer.from(renderedTemplate);
 
-  fs.writeSync(fileDescriptor, newData, 0, newData.length, 0);
-  fs.writeSync(fileDescriptor, oldData, 0, oldData.length, newData.length);
+  fs.ftruncate(fileDescriptor);
+
+  if (startString) {
+    fs.appendFileSync(fileDescriptor, startString + "\n");
+  }
+
+  fs.appendFileSync(fileDescriptor, newData);
+
+  if (oldData) {
+    fs.appendFileSync(fileDescriptor, oldData);
+  }
 
   fs.closeSync(fileDescriptor);
 };

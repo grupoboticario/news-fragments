@@ -46,7 +46,7 @@ test("should save the changelog and delete the fragments", async () => {
   const result = burn(["burn", "0.0.1"]);
   const expected = `
 [//]: # (s-0.0.1)
-  
+
 # [0.0.1] - (2020-12-02)
 
 ## Features

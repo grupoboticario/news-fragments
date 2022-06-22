@@ -33,7 +33,7 @@ const mockData = {
 
 const expectedOutput = `
 [//]: # (s-0.0.2)
-  
+
 # [0.0.2] - (${TODAY})
 
 ## Feature
@@ -70,7 +70,7 @@ test("should write in an empty file", () => {
   saveChangelogToFile(changelogFile, renderedTemplate);
   expect(fs.readFileSync(changelogFile).toString()).toStrictEqual(`
 [//]: # (s-0.0.2)
-  
+
 # [0.0.2] - (${TODAY})
 
 ## Feature
@@ -94,7 +94,7 @@ test("should prepend in a file with content", () => {
   const data = fs.readFileSync(changelogFile);
   expect(data.toString()).toStrictEqual(`
 [//]: # (s-0.0.2)
-  
+
 # [0.0.2] - (${TODAY})
 
 ## Feature

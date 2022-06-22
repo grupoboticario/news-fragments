@@ -37,7 +37,7 @@ test("should delete fragments when generated changelog", () => {
   const date = moment().format("YYYY-MM-DD");
   const expectedOutput = `
 [//]: # (s-${version})
-  
+
 # [${version}] - (${date})
 
 ## Features

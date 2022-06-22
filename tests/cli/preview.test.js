@@ -1,6 +1,7 @@
-const { preview } = require("../../src/cli/preview");
-const mockFs = require("mock-fs");
-const MockDate = require("mockdate");
+import mockFs from "mock-fs";
+import MockDate from "mockdate";
+
+import { preview } from "../../src/cli/preview";
 
 afterEach(() => {
   mockFs.restore();

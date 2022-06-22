@@ -1,8 +1,9 @@
-const { burn } = require("../../src/cli/burn");
-const chalk = require("chalk");
-const fs = require("fs");
-const mockFs = require("mock-fs");
-const MockDate = require("mockdate");
+import chalkTemplate from "chalk-template";
+import fs from "fs";
+import mockFs from "mock-fs";
+import MockDate from "mockdate";
+
+import { burn } from "../../src/cli/burn";
 
 beforeEach(() => {
   MockDate.set("2020-12-02T11:01:58.135Z");
@@ -16,7 +17,7 @@ afterEach(() => {
 test("should show an error when no version is passed", async () => {
   const result = burn(["burn"]);
 
-  const expected = chalk`No version was found.
+  const expected = chalkTemplate`No version was found.
 Please, provide one like: {green news-fragments burn 0.0.1}`;
 
   expect(result).toEqual(expected);
@@ -29,7 +30,7 @@ test("should show an error if there is no fragment to burn", async () => {
 
   const result = burn(["burn", "0.0.1"]);
 
-  const expected = chalk`No fragments were found.
+  const expected = chalkTemplate`No fragments were found.
 Remember to create with {green news-fragments create <fragment-type> <fragment-text>}`;
 
   expect(result).toEqual(expected);

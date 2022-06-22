@@ -1,6 +1,6 @@
-const fs = require("fs-extra");
-const Handlebars = require("handlebars");
-const moment = require("moment");
+import fs from "fs-extra";
+import Handlebars from "handlebars";
+import moment from "moment";
 
 function injectMetadata(compiledTemplate, version) {
   return `
@@ -12,12 +12,12 @@ ${compiledTemplate}
 `;
 }
 
-module.exports.renderTemplate = function (changelogTemplate, data, version) {
+export const renderTemplate = function (changelogTemplate, data, version) {
   const compiledTemplate = Handlebars.compile(changelogTemplate);
   return injectMetadata(compiledTemplate(data), version);
 };
 
-module.exports.saveChangelogToFile = function (filePath, renderedTemplate) {
+export const saveChangelogToFile = function (filePath, renderedTemplate) {
   const fileDescriptor = fs.openSync(filePath, "a+");
 
   const oldData = fs.readFileSync(filePath);
@@ -29,7 +29,7 @@ module.exports.saveChangelogToFile = function (filePath, renderedTemplate) {
   fs.closeSync(fileDescriptor);
 };
 
-module.exports.generateTemplateData = function (
+export const generateTemplateData = function (
   newVersion,
   dateFormat,
   fragments

@@ -1,4 +1,14 @@
 
+[//]: # (s-1.14.5)
+
+# [1.14.5] - (2022-06-22)
+
+## Misc
+* Remove trailing whitespace from template metadata.
+
+[//]: # (e-1.14.5)
+
+
 [//]: # (s-1.14.4)
   
 # [1.14.4] - (2022-04-26)

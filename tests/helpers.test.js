@@ -1,6 +1,7 @@
-const { checkChangelogFile, checkFragmentsFolder } = require("../src/helpers");
-const fs = require("fs-extra");
-const mockFs = require("mock-fs");
+import fs from "fs-extra";
+import mockFs from "mock-fs";
+
+import { checkChangelogFile, checkFragmentsFolder } from "../src/helpers";
 
 beforeEach(() => {
   mockFs({

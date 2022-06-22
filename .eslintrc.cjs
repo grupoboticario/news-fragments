@@ -1,6 +1,5 @@
 module.exports = {
   env: {
-    commonjs: true,
     es6: true,
     node: true,
   },
@@ -11,6 +10,10 @@ module.exports = {
   },
   parserOptions: {
     ecmaVersion: 2020,
+    sourceType: "module"
   },
-  rules: {},
+  plugins: ["simple-import-sort"],
+  "rules": {
+    "simple-import-sort/imports": "error"
+  }
 };

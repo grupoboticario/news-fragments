@@ -1,14 +1,15 @@
-const {
+import { Plugin } from "release-it";
+
+import {
   generateTemplateData,
   renderTemplate,
   saveChangelogToFile,
-} = require("./build-template");
-const { newsFragmentsUserConfig } = require("./config");
-const { checkChangelogFile, checkFragmentsFolder } = require("./helpers");
-const { getFragments, deleteFragmentsFiles } = require("./file");
-const { Plugin } = require("release-it");
+} from "./build-template.js";
+import { newsFragmentsUserConfig } from "./config.js";
+import { deleteFragmentsFiles, getFragments } from "./file.js";
+import { checkChangelogFile, checkFragmentsFolder } from "./helpers.js";
 
-class NewsFragments extends Plugin {
+export default class NewsFragments extends Plugin {
   start() {
     checkChangelogFile(newsFragmentsUserConfig.changelogFile);
     checkFragmentsFolder(newsFragmentsUserConfig.fragmentsFolder);
@@ -40,5 +41,3 @@ class NewsFragments extends Plugin {
   }
   getChangelog() {}
 }
-
-module.exports = NewsFragments;

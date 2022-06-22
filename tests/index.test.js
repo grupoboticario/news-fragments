@@ -1,9 +1,14 @@
-const fs = require("fs-extra");
-const mockFs = require("mock-fs");
-const moment = require("moment");
-const Plugin = require("../src/index");
-const pjson = require("../package.json");
-const { newsFragmentsUserConfig } = require("../src/config");
+import { readFileSync } from "fs";
+import fs from "fs-extra";
+import mockFs from "mock-fs";
+import moment from "moment";
+
+import { newsFragmentsUserConfig } from "../src/config";
+import Plugin from "../src/index";
+
+const pjson = JSON.parse(
+  readFileSync(new URL("../package.json", import.meta.url))
+);
 
 let newsFragments;
 

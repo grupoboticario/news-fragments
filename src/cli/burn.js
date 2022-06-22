@@ -1,20 +1,20 @@
-const { newsFragmentsUserConfig } = require("../config");
-const {
+import chalkTemplate from "chalk-template";
+
+import {
   generateTemplateData,
   renderTemplate,
   saveChangelogToFile,
-} = require("../build-template");
-const { getFragments, deleteFragmentsFiles } = require("../file");
+} from "../build-template.js";
+import { newsFragmentsUserConfig } from "../config.js";
+import { deleteFragmentsFiles, getFragments } from "../file.js";
 
-const chalk = require("chalk");
-
-module.exports.burn = function (inputs, flags) {
+export const burn = function (inputs, flags) {
   const newsFragments = getFragments(newsFragmentsUserConfig);
   const version = inputs[1];
   let message = "";
 
   if (!version) {
-    message = chalk`No version was found.
+    message = chalkTemplate`No version was found.
 Please, provide one like: {green news-fragments burn 0.0.1}`;
 
     process.stdout.write(message);
@@ -23,7 +23,7 @@ Please, provide one like: {green news-fragments burn 0.0.1}`;
   }
 
   if (!newsFragments.fragmentsToBurn.length) {
-    message = chalk`No fragments were found.
+    message = chalkTemplate`No fragments were found.
 Remember to create with {green news-fragments create <fragment-type> <fragment-text>}`;
 
     process.stdout.write(message);
@@ -46,7 +46,7 @@ Remember to create with {green news-fragments create <fragment-type> <fragment-t
   saveChangelogToFile(newsFragmentsUserConfig.changelogFile, renderedTemplate);
   deleteFragmentsFiles(newsFragments.fragmentsToDelete);
 
-  message = chalk`${newsFragments.fragmentsToBurn.length} fragments burned in ${newsFragmentsUserConfig.changelogFile}`;
+  message = chalkTemplate`${newsFragments.fragmentsToBurn.length} fragments burned in ${newsFragmentsUserConfig.changelogFile}`;
 
   process.stdout.write(message);
 

@@ -1,15 +1,15 @@
-const { newsFragmentsUserConfig } = require("../config");
-const { getFragments, getChangelogContent } = require("../file");
-const { generateTemplateData, renderTemplate } = require("../build-template");
+import { marked } from "marked";
+import TerminalRenderer from "marked-terminal";
 
-var { marked } = require("marked");
-var TerminalRenderer = require("marked-terminal");
+import { generateTemplateData, renderTemplate } from "../build-template.js";
+import { newsFragmentsUserConfig } from "../config.js";
+import { getChangelogContent, getFragments } from "../file.js";
 
 marked.setOptions({
   renderer: new TerminalRenderer(),
 });
 
-module.exports.preview = function (inputs, flags) {
+export const preview = function (inputs, flags) {
   if (!!flags && flags.previousVersion) {
     const previousVersionRegex = new RegExp(
       `(\\[\\/\\/\\]: # \\(s-${flags.previousVersion}\\))[\\s\\S]*(\\[\\/\\/\\]: # \\(e-${flags.previousVersion}\\))`

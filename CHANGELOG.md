@@ -1,4 +1,14 @@
 
+[//]: # (s-2.0.0-0)
+
+# [2.0.0-0] - (2022-06-23)
+
+## Features
+* Move project to esm and use the latest version of release-it.
+
+[//]: # (e-2.0.0-0)
+
+
 [//]: # (s-1.14.5)
 
 # [1.14.5] - (2022-06-22)

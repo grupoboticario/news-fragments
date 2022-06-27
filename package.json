@@ -7,7 +7,7 @@
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles --collectCoverage --runInBand --verbose --forceExit",
     "lint": "eslint . --ext .js --ignore-pattern node_modules/",
-    "lint:fix": "eslint . --ext .js --ignore-pattern node_modules/",
+    "lint:fix": "eslint . --ext .js --fix --ignore-pattern node_modules/",
     "release": "release-it"
   },
   "repository": {
@@ -31,9 +31,8 @@
     "@release-it/bumper": "4.0.0",
     "eslint": "8.18.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-prettier": "^4.1.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
-    "eslint-plugin-sort-import": "^1.0.7",
     "jest": "^28.0.1",
     "mock-fs": "^5.1.0",
     "mockdate": "^3.0.5",

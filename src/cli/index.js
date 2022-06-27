@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
 "use strict";
-import { pathToFileURL } from "url";
+import { burn } from "./burn.js";
 import { create } from "./create.js";
 import { preview } from "./preview.js";
-import { burn } from "./burn.js";
 
 import('meow').then(meow => {  // eslint-disable-line
   const cli = meow.default(

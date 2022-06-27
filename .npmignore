@@ -1,0 +1,9 @@
+.editorconfig
+.eslintrc.cjs
+.github
+.nvmrc
+frgments
+jest.config.js
+myself-release.js
+sonar-project.properties
+tests

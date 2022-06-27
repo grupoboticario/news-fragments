@@ -79,6 +79,6 @@
     }
   },
   "bin": {
-    "news-fragments": "src/cli/index.js"
+    "news-fragments": "src/cli/index.cjs"
   }
 }

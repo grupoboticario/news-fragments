@@ -28,15 +28,15 @@ jobs:
         uses: ./.github/fortify-action-api
         id: fortify_api
         with:
-          api_credentials: '${{ env.USERF }}'
-          application_name: '${{ github.repository }}'
-          application_version: 'main'
+          api_credentials: "${{ env.USERF }}"
+          application_name: "${{ github.repository }}"
+          application_version: "main"
       - name: SAST
         uses: ./.github/fortify-action-sast
         id: SAST
         with:
-          application_name: '${{ github.repository }}'
-          application_version: 'main'
-          client_token: '${{ env.SCANCENTRAL }}'
-          ci_token: '${{ env.CITOKEN }}'
+          application_name: "${{ github.repository }}"
+          application_version: "main"
+          client_token: "${{ env.SCANCENTRAL }}"
+          ci_token: "${{ env.CITOKEN }}"
           language_profile: other

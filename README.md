@@ -8,6 +8,10 @@ News fragments is a plugin for [release-it](https://github.com/release-it/releas
 
 Basically, you need to specify a folder to be your center of fragments that will generate a custom changelog when released. After that, you'll create files with the desired extension with quick messages inside that folder to better understand what will come up on the new version of your software.
 
+## Requirements
+
+- Use Node v16+
+
 ## Setup
 
 In [release-it](https://github.com/release-it/release-it) config at `package.json`, create a `news-fragments` key-pair to override the default config - e.g.

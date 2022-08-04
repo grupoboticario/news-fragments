@@ -53,7 +53,7 @@
     "release-it": "15.2.0"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "release-it": {
     "npm": false,

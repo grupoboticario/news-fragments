@@ -11,21 +11,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        version: [16, 18]
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup node 16.x
-        uses: actions/setup-node@v3.4.1
+      - name: Setup node ${{ matrix.version }}
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.x
+          node-version: ${{ matrix.version }}
 
       - name: Get npm cache directory
         id: npm-cache
         run: |
           echo "::set-output name=dir::$(npm config get cache)"
 
-      - uses: actions/cache@v3.0.6
+      - uses: actions/cache@v3
         with:
           path: ${{ steps.npm-cache.outputs.dir }}
           key: ubuntu-latest-node-${{ hashFiles('**/yarn.lock') }}
@@ -40,3 +42,8 @@ jobs:
 
       - name: Build & Test
         run: yarn test
+
+      - uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}

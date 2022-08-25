@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should throw error when receive invalid parameters 1`] = `"\\"changelogFile\\" must be a string"`;
+exports[`should throw error when receive invalid parameters 1`] = `""changelogFile" must be a string"`;
 
-exports[`should throw error when receive invalid parameters 2`] = `"\\"changelogDateFormat\\" must be a string"`;
+exports[`should throw error when receive invalid parameters 2`] = `""changelogDateFormat" must be a string"`;
 
-exports[`should throw error when receive invalid parameters 3`] = `"\\"changelogTemplate\\" must be a string"`;
+exports[`should throw error when receive invalid parameters 3`] = `""changelogTemplate" must be a string"`;
 
-exports[`should throw error when receive invalid parameters 4`] = `"\\"fragmentsFolder\\" is required"`;
+exports[`should throw error when receive invalid parameters 4`] = `""fragmentsFolder" is required"`;
 
-exports[`should throw error when receive invalid parameters 5`] = `"\\"fragmentsTypes\\" does not contain 1 required value(s)"`;
+exports[`should throw error when receive invalid parameters 5`] = `""fragmentsTypes" does not contain 1 required value(s)"`;

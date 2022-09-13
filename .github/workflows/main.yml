@@ -21,6 +21,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.version }}
+          cache: "yarn"
 
       - name: Get npm cache directory
         id: npm-cache

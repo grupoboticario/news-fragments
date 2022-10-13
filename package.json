@@ -41,7 +41,7 @@
     "semver": "^7.3.5"
   },
   "dependencies": {
-    "chalk": "5.0.1",
+    "chalk": "5.1.2",
     "chalk-template": "^0.4.0",
     "fs-extra": "^10.0.0",
     "handlebars": "^4.7.7",

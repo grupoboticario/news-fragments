@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [16, 18]
+        version: [16, 18, 19]
     steps:
       - uses: actions/checkout@v3
 
@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v3.5.1
         with:
           node-version: ${{ matrix.version }}
-          cache: "yarn"
+          cache: "npm"
 
       - name: Get npm cache directory
         id: npm-cache
@@ -31,18 +31,18 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: ${{ steps.npm-cache.outputs.dir }}
-          key: ubuntu-latest-node-${{ hashFiles('**/yarn.lock') }}
+          key: ubuntu-latest-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ubuntu-latest-node-
 
       - name: Install dependencies
-        run: yarn install
+        run: npm install
 
       - name: Run lint
-        run: yarn lint
+        run: npm run lint
 
       - name: Build & Test
-        run: yarn test
+        run: npm test
 
       - uses: SonarSource/sonarcloud-github-action@master
         continue-on-error: true

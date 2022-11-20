@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
+    "pretest": "npm run lint:fix",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles --collectCoverage --runInBand --verbose --forceExit",
     "lint": "eslint . --ext .js --ignore-pattern node_modules/",
     "lint:fix": "eslint . --ext .js --fix --ignore-pattern node_modules/",

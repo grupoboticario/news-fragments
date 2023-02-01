@@ -1,4 +1,17 @@
 
+[//]: # (s-2.0.11)
+
+# [2.0.11] - (2023-02-01)
+
+## Bugfixes
+* Fix function saveChangelogToFile to avoid duplicate fragment in loop. [#508](https://github.com/grupoboticario/news-fragments/issues/508) [#543](https://github.com/grupoboticario/news-fragments/pull/543)
+
+## Misc
+* Update project dependencies.
+
+[//]: # (e-2.0.11)
+
+
 [//]: # (s-2.0.10)
 
 # [2.0.10] - (2022-12-28)

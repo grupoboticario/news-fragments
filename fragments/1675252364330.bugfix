@@ -1,0 +1,1 @@
+fix funct saveChangelogToFile to avoid duplicate fragment in loop.

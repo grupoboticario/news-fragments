@@ -24,15 +24,13 @@ export const saveChangelogToFile = function (filePath, renderedTemplate) {
     // asynchronously create a directory
     fs.writeFileSync(filePath, renderedTemplate);
     return;
-  };
+  }
 
   const oldData = fs.readFileSync(filePath);
   const newData = new Buffer.from(renderedTemplate);
-  
   fs.unlinkSync(filePath);
   fs.appendFileSync(filePath, newData + oldData);
 };
-
 
 export const generateTemplateData = function (
   newVersion,

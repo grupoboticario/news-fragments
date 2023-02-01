@@ -18,7 +18,6 @@ export const renderTemplate = function (changelogTemplate, data, version) {
 };
 
 export const saveChangelogToFile = function (filePath, renderedTemplate) {
-  // const fileDescriptor = fs.openSync(filePath, "a+");
   // Check if the file exists
   if (!fs.existsSync(filePath)) {
     // asynchronously create a directory

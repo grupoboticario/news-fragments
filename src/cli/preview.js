@@ -7,6 +7,8 @@ import { getChangelogContent, getFragments } from "../file.js";
 
 marked.setOptions({
   renderer: new TerminalRenderer(),
+  mangle: false,
+  headerIds: false,
 });
 
 export const preview = function (inputs, flags) {

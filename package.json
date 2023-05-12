@@ -54,7 +54,7 @@
     "release-it": "^15.8.0"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "release-it": {
     "npm": false,

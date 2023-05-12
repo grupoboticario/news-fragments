@@ -28,7 +28,7 @@ import('meow').then(meow => {  // eslint-disable-line
       flags: {
         previousVersion: {
           type: "string",
-          alias: "p",
+          shortFlag: "p",
         },
       },
     }

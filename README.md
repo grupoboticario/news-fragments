@@ -10,7 +10,7 @@ Basically, you need to specify a folder to be your center of fragments that will
 
 ## Requirements
 
-- Use Node v16+
+- Use Node v18+
 
 ## Setup
 

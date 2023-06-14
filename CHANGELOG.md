@@ -1,4 +1,17 @@
 
+[//]: # (s-3.0.0)
+
+# [3.0.0] - (2023-06-14)
+
+## Deprecations and Removals
+* Drop support to node 16.
+
+## Misc
+* Update project dependencies.
+
+[//]: # (e-3.0.0)
+
+
 [//]: # (s-2.0.15)
 
 # [2.0.15] - (2023-05-02)

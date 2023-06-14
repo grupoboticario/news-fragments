@@ -4,6 +4,9 @@ on:
   push:
     tags:
       - "*"
+permissions:
+  contents: write
+  packages: read
 
 jobs:
   npm-publish:
@@ -16,6 +19,7 @@ jobs:
       - run: npm install
       - run: npm run lint
       - run: npm test
+
       - id: "publish"
         uses: JS-DevTools/npm-publish@v1
         with:
@@ -28,3 +32,14 @@ jobs:
       - if: steps.publish.type == 'none'
         run: |
           echo "Version not changed."
+
+      - name: Get current tag
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+      - name: Generate release changelog
+        run: ./src/cli/index.js preview -p $RELEASE_VERSION >> release.txt
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          body_path: release.txt

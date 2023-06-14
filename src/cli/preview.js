@@ -6,7 +6,7 @@ import { newsFragmentsUserConfig } from "../config.js";
 import { getChangelogContent, getFragments } from "../file.js";
 
 marked.setOptions({
-  renderer: new TerminalRenderer(),
+  renderer: new TerminalRenderer({ tab: 0 }),
   mangle: false,
   headerIds: false,
 });

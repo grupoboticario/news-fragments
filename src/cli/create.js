@@ -9,7 +9,7 @@ import { checkFragmentsFolder } from "../helpers.js";
 const availableFragmentTypes = newsFragmentsUserConfig.fragmentsTypes.map(
   function (el) {
     return el.extension;
-  }
+  },
 );
 
 export const create = function (inputs, flags) {

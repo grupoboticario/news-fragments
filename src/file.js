@@ -5,12 +5,12 @@ import { checkChangelogFile } from "./helpers.js";
 
 export const getFragmentsFilesByFragmentType = function (
   fragmentsFolder,
-  fragmentType
+  fragmentType,
 ) {
   const dir = fs.readdirSync(fragmentsFolder);
 
   const files = dir.filter((elm) =>
-    elm.match(new RegExp(`.*\.(${fragmentType})`, "ig"))
+    elm.match(new RegExp(`.*\.(${fragmentType})`, "ig")),
   );
 
   return files.map((file) => {
@@ -42,7 +42,7 @@ export const getFragments = function (newsFragmentsConfig) {
   fragmentsTypes.forEach((fragmentType) => {
     const files = getFragmentsFilesByFragmentType(
       fragmentsFolder,
-      fragmentType.extension
+      fragmentType.extension,
     );
 
     if (files.length > 0) {

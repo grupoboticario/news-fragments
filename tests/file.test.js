@@ -79,6 +79,6 @@ test("should return the changelog content", async () => {
   };
 
   expect(getChangelogContent(fakeNewsFragmentsConfig)).toEqual(
-    "My content bruh"
+    "My content bruh",
   );
 });

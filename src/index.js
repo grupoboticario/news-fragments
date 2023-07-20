@@ -26,16 +26,16 @@ export default class NewsFragments extends Plugin {
     const templateData = generateTemplateData(
       version,
       newsFragmentsUserConfig.changelogDateFormat,
-      this.fragmentsToBurn
+      this.fragmentsToBurn,
     );
     const renderedTemplate = renderTemplate(
       newsFragmentsUserConfig.changelogTemplate,
       templateData,
-      version
+      version,
     );
     saveChangelogToFile(
       newsFragmentsUserConfig.changelogFile,
-      renderedTemplate
+      renderedTemplate,
     );
     deleteFragmentsFiles(this.fragmentsToDelete);
   }

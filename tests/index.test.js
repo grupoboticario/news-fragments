@@ -7,7 +7,7 @@ import { newsFragmentsUserConfig } from "../src/config";
 import Plugin from "../src/index";
 
 const pjson = JSON.parse(
-  readFileSync(new URL("../package.json", import.meta.url))
+  readFileSync(new URL("../package.json", import.meta.url)),
 );
 
 let newsFragments;
@@ -55,9 +55,9 @@ test("should delete fragments when generated changelog", () => {
   newsFragments.bump(version);
 
   expect(fs.readdirSync(newsFragmentsUserConfig.fragmentsFolder)).toStrictEqual(
-    [".gitkeep"]
+    [".gitkeep"],
   );
   expect(
-    fs.readFileSync(newsFragmentsUserConfig.changelogFile, "utf8")
+    fs.readFileSync(newsFragmentsUserConfig.changelogFile, "utf8"),
   ).toStrictEqual(expectedOutput);
 });

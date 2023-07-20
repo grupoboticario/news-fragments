@@ -57,5 +57,5 @@ export const retrieveUserConfig = function (config, name) {
 };
 
 export const newsFragmentsUserConfig = buildConfig(
-  retrieveUserConfig(globalConfig, "news-fragments")
+  retrieveUserConfig(globalConfig, "news-fragments"),
 );

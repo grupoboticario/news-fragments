@@ -31,7 +31,7 @@ import('meow').then(meow => {  // eslint-disable-line
           shortFlag: "p",
         },
       },
-    }
+    },
   );
 
   const commands = {

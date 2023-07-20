@@ -34,13 +34,13 @@ Remember to create with {green news-fragments create <fragment-type> <fragment-t
   const templateData = generateTemplateData(
     version,
     newsFragmentsUserConfig.changelogDateFormat,
-    newsFragments.fragmentsToBurn
+    newsFragments.fragmentsToBurn,
   );
 
   const renderedTemplate = renderTemplate(
     newsFragmentsUserConfig.changelogTemplate,
     templateData,
-    version
+    version,
   );
 
   saveChangelogToFile(newsFragmentsUserConfig.changelogFile, renderedTemplate);

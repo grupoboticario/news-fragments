@@ -123,6 +123,6 @@ test("should generate the data to use in template", () => {
     },
   ];
   expect(
-    generateTemplateData("0.0.2", "YYYY-MM-DD", fakeFragments)
+    generateTemplateData("0.0.2", "YYYY-MM-DD", fakeFragments),
   ).toStrictEqual(mockData);
 });

@@ -34,7 +34,7 @@ export const saveChangelogToFile = function (filePath, renderedTemplate) {
 export const generateTemplateData = function (
   newVersion,
   dateFormat,
-  fragments
+  fragments,
 ) {
   return {
     newVersion,

@@ -22,7 +22,7 @@ test("should return success message when create a fragment", async () => {
   const result = create(["create", "feature", "show"]);
 
   expect(result).toStrictEqual(
-    "Fragment fragments/1557831718135.feature created with success!"
+    "Fragment fragments/1557831718135.feature created with success!",
   );
 });
 
@@ -51,5 +51,5 @@ test.each(["", "message."])(
 
     expect(contents).toStrictEqual(message);
     fs.unlinkSync("fragments/1557831718135.feature");
-  }
+  },
 );

@@ -14,12 +14,12 @@ marked.setOptions({
 export const preview = function (inputs, flags) {
   if (!!flags && flags.previousVersion) {
     const previousVersionRegex = new RegExp(
-      `(\\[\\/\\/\\]: # \\(s-${flags.previousVersion}\\))[\\s\\S]*(\\[\\/\\/\\]: # \\(e-${flags.previousVersion}\\))`
+      `(\\[\\/\\/\\]: # \\(s-${flags.previousVersion}\\))[\\s\\S]*(\\[\\/\\/\\]: # \\(e-${flags.previousVersion}\\))`,
     );
 
     const changelogContent = getChangelogContent(newsFragmentsUserConfig);
     const previousOutput = marked(
-      (changelogContent.match(previousVersionRegex) || [""])[0]
+      (changelogContent.match(previousVersionRegex) || [""])[0],
     );
 
     process.stdout.write(previousOutput);
@@ -33,13 +33,13 @@ export const preview = function (inputs, flags) {
   const templateData = generateTemplateData(
     version,
     newsFragmentsUserConfig.changelogDateFormat,
-    newsFragments.fragmentsToBurn
+    newsFragments.fragmentsToBurn,
   );
 
   const renderedTemplate = renderTemplate(
     newsFragmentsUserConfig.changelogTemplate,
     templateData,
-    version
+    version,
   );
 
   const output = marked(renderedTemplate);

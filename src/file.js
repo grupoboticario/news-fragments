@@ -20,7 +20,7 @@ export const getFragmentsFilesByFragmentType = function (
 
 export const getFragmentsContent = function (fragmentsFiles) {
   return fragmentsFiles.map((file) => {
-    return fs.readFileSync(file, "utf8").replace("\n", "");
+    return fs.readFileSync(file).toString();
   });
 };
 

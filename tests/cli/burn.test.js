@@ -57,7 +57,7 @@ test("should save the changelog and delete the fragments", async () => {
 
 `;
 
-  expect(fs.readFileSync("CHANGELOG.md", "utf8")).toEqual(expected);
+  expect(fs.readFileSync("CHANGELOG.md").toString()).toEqual(expected);
   expect(fs.existsSync("fragments/xpto.feature")).toBeFalsy();
   expect(result).toEqual("1 fragments burned in CHANGELOG.md");
 });

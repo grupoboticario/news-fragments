@@ -58,6 +58,6 @@ test("should delete fragments when generated changelog", () => {
     [".gitkeep"],
   );
   expect(
-    fs.readFileSync(newsFragmentsUserConfig.changelogFile, "utf8"),
+    fs.readFileSync(newsFragmentsUserConfig.changelogFile).toString(),
   ).toStrictEqual(expectedOutput);
 });

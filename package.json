@@ -34,7 +34,7 @@
     "@vitest/coverage-v8": "^0.34.0",
     "@vitest/ui": "^0.34.0",
     "eslint": "^8.26.0",
-    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "mock-fs": "^5.1.0",

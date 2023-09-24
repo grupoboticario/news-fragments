@@ -50,8 +50,8 @@
     "fs-extra": "^11.0.0",
     "handlebars": "^4.7.7",
     "joi": "^17.4.2",
-    "marked": "^5.0.2",
-    "marked-terminal": "^5.1.1",
+    "marked": "^9",
+    "marked-terminal": "^6",
     "meow": "^12.1.0",
     "moment": "^2.29.1",
     "release-it": "^16.1.0"

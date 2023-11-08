@@ -12,28 +12,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         version: [18, 20]
+
     steps:
       - uses: actions/checkout@v3
-
       - name: Setup node ${{ matrix.version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.version }}
           cache: "npm"
-
-      - name: Get npm cache directory
-        id: npm-cache
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-
-      - uses: actions/cache@v3
-        with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ubuntu-latest-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ubuntu-latest-node-
 
       - name: Install dependencies
         run: npm install

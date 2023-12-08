@@ -1,11 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`should throw error when receive invalid parameters 1`] = `"\\"changelogFile\\" must be a string"`;
+exports[`should throw error when receive invalid parameters 1`] = `[Error: "changelogFile" must be a string]`;
 
-exports[`should throw error when receive invalid parameters 2`] = `"\\"changelogDateFormat\\" must be a string"`;
+exports[`should throw error when receive invalid parameters 2`] = `[Error: "changelogDateFormat" must be a string]`;
 
-exports[`should throw error when receive invalid parameters 3`] = `"\\"changelogTemplate\\" must be a string"`;
+exports[`should throw error when receive invalid parameters 3`] = `[Error: "changelogTemplate" must be a string]`;
 
-exports[`should throw error when receive invalid parameters 4`] = `"\\"fragmentsFolder\\" is required"`;
+exports[`should throw error when receive invalid parameters 4`] = `[Error: "fragmentsFolder" is required]`;
 
-exports[`should throw error when receive invalid parameters 5`] = `"\\"fragmentsTypes\\" does not contain 1 required value(s)"`;
+exports[`should throw error when receive invalid parameters 5`] = `[Error: "fragmentsTypes" does not contain 1 required value(s)]`;

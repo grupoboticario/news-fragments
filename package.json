@@ -52,7 +52,7 @@
     "joi": "^17.4.2",
     "marked": "^11",
     "marked-terminal": "^6",
-    "meow": "^12.1.0",
+    "meow": "^13.0.0",
     "moment": "^2.29.1",
     "release-it": "^17.0.0"
   },

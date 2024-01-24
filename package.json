@@ -31,8 +31,8 @@
   "homepage": "https://github.com/grupoboticario/news-fragments#readme",
   "devDependencies": {
     "@release-it/bumper": "^6.0.1",
-    "@vitest/coverage-v8": "^1.0.0",
-    "@vitest/ui": "^1.0.0",
+    "@vitest/coverage-v8": "^1.2.0",
+    "@vitest/ui": "^1.2.0",
     "eslint": "^8",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
@@ -40,16 +40,16 @@
     "mock-fs": "^5.1.0",
     "mockdate": "^3.0.5",
     "prettier": "^3.0.0",
-    "pretty-quick": "^3.1.1",
+    "pretty-quick": "^4.0.0",
     "semver": "^7.3.5",
-    "vitest": "^1.0.0"
+    "vitest": "^1.2.0"
   },
   "dependencies": {
     "chalk": "^5.2.0",
     "chalk-template": "^1.0.0",
     "fs-extra": "^11.0.0",
     "handlebars": "^4.7.7",
-    "joi": "^17.4.2",
+    "joi": "^17.12.0",
     "marked": "^11",
     "marked-terminal": "^6",
     "meow": "^13.0.0",

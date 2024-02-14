@@ -21,17 +21,13 @@ jobs:
       - run: npm test
 
       - id: "publish"
-        uses: JS-DevTools/npm-publish@v1
+        uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
 
-      - if: steps.publish.type != 'none'
+      - if: ${{ steps.publish.outputs.type }}
         run: |
           echo "Version changed: ${{ steps.publish.old-version }} => ${{ steps.publish.version }}"
-
-      - if: steps.publish.type == 'none'
-        run: |
-          echo "Version not changed."
 
       - name: Get current tag
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV

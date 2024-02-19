@@ -3,9 +3,25 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: America/Sao_Paulo
+    groups:
+      vite:
+        patterns:
+          - "*vite*"
+      release-it:
+        patterns:
+          - "*release-it*"
+      eslint:
+        patterns:
+          - "*eslint*"
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: America/Sao_Paulo

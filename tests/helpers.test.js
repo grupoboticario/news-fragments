@@ -1,16 +1,14 @@
-import fs from "fs-extra";
-import mockFs from "mock-fs";
+import fs from "fs";
+import { patchFs } from "fs-monkey";
+import { Volume } from "memfs";
 
 import { checkChangelogFile, checkFragmentsFolder } from "../src/helpers";
 
 beforeEach(() => {
-  mockFs({
+  const vol = Volume.fromJSON({
     "virtual-env": {},
   });
-});
-
-afterEach(() => {
-  mockFs.restore();
+  patchFs(vol);
 });
 
 test("should create a changelog file if doesnt exist", () => {

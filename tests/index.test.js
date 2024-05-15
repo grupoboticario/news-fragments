@@ -1,6 +1,7 @@
 import { readFileSync } from "fs";
-import fs from "fs-extra";
-import mockFs from "mock-fs";
+import fs from "fs";
+import { patchFs } from "fs-monkey";
+import { Volume } from "memfs";
 import moment from "moment";
 
 import { newsFragmentsUserConfig } from "../src/config";
@@ -13,18 +14,15 @@ const pjson = JSON.parse(
 let newsFragments;
 
 beforeEach(() => {
-  mockFs({
+  const vol = Volume.fromNestedJSON({
     fragments: {
       ".gitkeep": "",
       "collect-me.feature": "Coleta com sucesso",
     },
     "CHANGELOG.md": "",
   });
+  patchFs(vol);
   newsFragments = new Plugin();
-});
-
-afterEach(() => {
-  mockFs.restore();
 });
 
 test("should collect a fragment when running init method", () => {

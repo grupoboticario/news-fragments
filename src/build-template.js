@@ -1,4 +1,4 @@
-import fs from "fs-extra";
+import fs from "fs";
 import Handlebars from "handlebars";
 import moment from "moment";
 

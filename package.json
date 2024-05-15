@@ -37,7 +37,8 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-simple-import-sort": "^12.0.0",
-    "mock-fs": "^5.1.0",
+    "fs-monkey": "^1.0.6",
+    "memfs": "^4.9.2",
     "mockdate": "^3.0.5",
     "prettier": "^3.0.0",
     "pretty-quick": "^4.0.0",
@@ -47,7 +48,6 @@
   "dependencies": {
     "chalk": "^5.2.0",
     "chalk-template": "^1.0.0",
-    "fs-extra": "^11.0.0",
     "handlebars": "^4.7.7",
     "joi": "^17.12.0",
     "marked": "^12",

@@ -1,21 +1,28 @@
 import chalkTemplate from "chalk-template";
 import fs from "fs";
-import mockFs from "mock-fs";
+import { patchFs } from "fs-monkey";
+import { Volume } from "memfs";
 import MockDate from "mockdate";
+import { beforeEach } from "vitest";
 
 import { create } from "../../src/cli/create";
 
-mockFs({
-  fragments: {},
+beforeEach(() => {});
+
+afterEach(() => {
+  try {
+    fs.unlinkSync("fragments/1557831718135.feature");
+  } catch (e) {}
+  MockDate.reset();
 });
 
 beforeEach(() => {
   MockDate.set("2019-05-14T11:01:58.135Z");
-});
+  const vol = Volume.fromJSON({
+    fragments: {},
+  });
 
-afterEach(() => {
-  mockFs.restore();
-  MockDate.reset();
+  patchFs(vol);
 });
 
 test("should return success message when create a fragment", async () => {

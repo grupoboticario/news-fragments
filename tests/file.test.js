@@ -1,5 +1,6 @@
-import fs from "fs-extra";
-import mockFs from "mock-fs";
+import fs from "fs";
+import { patchFs } from "fs-monkey";
+import { Volume } from "memfs";
 
 import {
   deleteFragmentsFiles,
@@ -9,16 +10,13 @@ import {
 } from "../src/file";
 
 beforeEach(() => {
-  mockFs({
+  const vol = Volume.fromJSON({
     "fragments/.gitkeep": "",
     "fragments/test.bugfix": "fake bugfix content",
     "fragments/test.feature": "fake feature content",
     "fragments/test2.feature": "fake 2 feature content",
   });
-});
-
-afterEach(() => {
-  mockFs.restore();
+  patchFs(vol);
 });
 
 test("should return a list of fragment files based on fragment type", async () => {
@@ -70,9 +68,10 @@ test("should return empty when there is no changelog content", async () => {
 });
 
 test("should return the changelog content", async () => {
-  mockFs({
+  const vol = Volume.fromJSON({
     "CHANGELOG.md": "My content bruh",
   });
+  patchFs(vol);
 
   const fakeNewsFragmentsConfig = {
     changelogFile: "CHANGELOG.md",

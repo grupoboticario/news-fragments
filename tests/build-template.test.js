@@ -1,5 +1,6 @@
-import fs from "fs-extra";
-import mockFs from "mock-fs";
+import fs from "fs";
+import { patchFs } from "fs-monkey";
+import { Volume } from "memfs";
 import moment from "moment";
 
 import {
@@ -53,19 +54,17 @@ beforeEach(() => {
   changelogFile = config.changelogFile;
 });
 
-afterEach(() => {
-  mockFs.restore();
-});
-
 test("should render correctly the template", () => {
   const result = renderTemplate(changelogTemplate, mockData, "0.0.2");
   expect(result).toStrictEqual(expectedOutput);
 });
 
 test("should write in an empty file", () => {
-  mockFs({
+  const vol = Volume.fromNestedJSON({
     "CHANGELOG.md": "",
   });
+  patchFs(vol);
+
   const renderedTemplate = renderTemplate(changelogTemplate, mockData, "0.0.2");
   saveChangelogToFile(changelogFile, renderedTemplate);
   expect(fs.readFileSync(changelogFile).toString()).toStrictEqual(`
@@ -86,9 +85,12 @@ test("should write in an empty file", () => {
 });
 
 test("should prepend in a file with content", () => {
-  mockFs({
+  const vol = Volume.fromNestedJSON({
     "CHANGELOG.md": "matheuszin_reidelas2011@hotmail.com",
   });
+
+  patchFs(vol);
+
   const renderedTemplate = renderTemplate(changelogTemplate, mockData, "0.0.2");
   saveChangelogToFile(changelogFile, renderedTemplate);
   const data = fs.readFileSync(changelogFile);

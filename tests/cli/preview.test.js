@@ -1,10 +1,10 @@
-import mockFs from "mock-fs";
+import { patchFs } from "fs-monkey";
+import { Volume } from "memfs";
 import MockDate from "mockdate";
 
 import { preview } from "../../src/cli/preview";
 
 afterEach(() => {
-  mockFs.restore();
   MockDate.reset();
 });
 
@@ -45,9 +45,11 @@ const fakeChangelog = `
 test("should only return date when there are no fragments", async () => {
   MockDate.set(FAKE_DATE);
 
-  mockFs({
+  const vol = Volume.fromNestedJSON({
     fragments: {},
   });
+
+  patchFs(vol);
 
   const result = preview({});
 
@@ -62,11 +64,13 @@ test("should only return date when there are no fragments", async () => {
 test("should return data from fragments", async () => {
   MockDate.set(FAKE_DATE);
 
-  mockFs({
+  const vol = Volume.fromNestedJSON({
     fragments: {
       "test.feature": "My feature",
     },
   });
+
+  patchFs(vol);
 
   const result = preview({});
 
@@ -78,9 +82,11 @@ test("should return data from fragments", async () => {
 test("should return a previous version", async () => {
   MockDate.set(FAKE_DATE);
 
-  mockFs({
+  const vol = Volume.fromNestedJSON({
     "CHANGELOG.md": fakeChangelog,
   });
+
+  patchFs(vol);
 
   const result = preview({}, { previousVersion: "1.0.1" });
 
@@ -94,9 +100,11 @@ test("should return a previous version", async () => {
 test("should return nothing when the previous version doesn't exist", async () => {
   MockDate.set(FAKE_DATE);
 
-  mockFs({
+  const vol = Volume.fromNestedJSON({
     "CHANGELOG.md": fakeChangelog,
   });
+
+  patchFs(vol);
 
   const result = preview({}, { previousVersion: "5.0.1" });
 

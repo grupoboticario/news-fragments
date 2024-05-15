@@ -1,6 +1,7 @@
 import chalkTemplate from "chalk-template";
 import fs from "fs";
-import mockFs from "mock-fs";
+import { patchFs } from "fs-monkey";
+import { Volume } from "memfs";
 import MockDate from "mockdate";
 
 import { burn } from "../../src/cli/burn";
@@ -10,7 +11,6 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  mockFs.restore();
   MockDate.reset();
 });
 
@@ -24,9 +24,11 @@ Please, provide one like: {green news-fragments burn 0.0.1}`;
 });
 
 test("should show an error if there is no fragment to burn", async () => {
-  mockFs({
+  const vol = Volume.fromJSON({
     fragments: {},
   });
+
+  patchFs(vol);
 
   const result = burn(["burn", "0.0.1"]);
 
@@ -37,12 +39,14 @@ Remember to create with {green news-fragments create <fragment-type> <fragment-t
 });
 
 test("should save the changelog and delete the fragments", async () => {
-  mockFs({
+  const vol = Volume.fromNestedJSON({
     fragments: {
       "xpto.feature": "Adiciona uma feature.",
     },
     "CHANGELOG.md": "",
   });
+
+  patchFs(vol);
 
   const result = burn(["burn", "0.0.1"]);
   const expected = `

@@ -1,4 +1,18 @@
 
+[//]: # (s-3.0.13)
+
+# [3.0.13] - (2024-05-20)
+
+## Features
+* Add support to node 22.
+
+## Misc
+* Fix broken tests on node &gt;&#x3D;20.
+* Update project dependencies.
+
+[//]: # (e-3.0.13)
+
+
 [//]: # (s-3.0.12)
 
 # [3.0.12] - (2024-02-22)

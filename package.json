@@ -31,8 +31,8 @@
   "homepage": "https://github.com/grupoboticario/news-fragments#readme",
   "devDependencies": {
     "@release-it/bumper": "^6.0.1",
-    "@vitest/coverage-v8": "^1.2.0",
-    "@vitest/ui": "^1.2.0",
+    "@vitest/coverage-v8": "^2.0.0",
+    "@vitest/ui": "^2.0.0",
     "eslint": "^8",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
@@ -43,7 +43,7 @@
     "prettier": "^3.0.0",
     "pretty-quick": "^4.0.0",
     "semver": "^7.3.5",
-    "vitest": "^1.2.0"
+    "vitest": "^2.0.0"
   },
   "dependencies": {
     "chalk": "^5.2.0",

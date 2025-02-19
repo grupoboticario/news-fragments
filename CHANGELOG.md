@@ -1,4 +1,17 @@
 
+[//]: # (s-3.1.0)
+
+# [3.1.0] - (2025-02-19)
+
+## Deprecations and Removals
+* Drop support to node 18.
+
+## Misc
+* Update project dependencies.
+
+[//]: # (e-3.1.0)
+
+
 [//]: # (s-3.0.18)
 
 # [3.0.18] - (2024-10-22)

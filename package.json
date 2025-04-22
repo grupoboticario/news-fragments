@@ -57,7 +57,8 @@
     "release-it": "<19"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=18",
+    "npm": ">=10"
   },
   "release-it": {
     "npm": false,

@@ -54,7 +54,7 @@
     "marked-terminal": "^7",
     "meow": "^13.0.0",
     "moment": "^2.29.1",
-    "release-it": "<19"
+    "release-it": "<20"
   },
   "engines": {
     "node": ">=18"

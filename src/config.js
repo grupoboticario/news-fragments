@@ -52,10 +52,11 @@ export const buildConfig = function (config) {
   return newsFragmentConfiguration;
 };
 
-export const retrieveUserConfig = function (config, name) {
+export const retrieveUserConfig = async function (config, name) {
+  await globalConfig.init()
   return config.getContext(`plugins.${name}`) || null;
 };
 
 export const newsFragmentsUserConfig = buildConfig(
-  retrieveUserConfig(globalConfig, "news-fragments"),
+  await retrieveUserConfig(globalConfig, "news-fragments"),
 );

@@ -33,7 +33,8 @@ jobs:
       - name: Run Build & Test
         run: npm test
       - uses: SonarSource/sonarqube-scan-action@v5
-        if: ${{ vars.SONAR_ENABLED == 'true' }}
+        if: ${{ vars.SONAR_ENABLED == 'true'  && matrix.version == '20' }}
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}

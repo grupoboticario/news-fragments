@@ -1,0 +1,1 @@
+Adds support to release-it >= 19.

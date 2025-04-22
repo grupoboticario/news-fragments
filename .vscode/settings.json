@@ -1,0 +1,6 @@
+{
+  "sonarlint.connectedMode.project": {
+    "connectionId": "gbtech-oss",
+    "projectKey": "news-fragments"
+  }
+}

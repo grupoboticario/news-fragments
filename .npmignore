@@ -2,8 +2,9 @@
 .eslintrc.cjs
 .github
 .nvmrc
-fragments
+.vscode
 coverage
+fragments
 jest.config.js
 myself-release.js
 sonar-project.properties

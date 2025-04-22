@@ -38,7 +38,7 @@ test.each([
   }).toThrowErrorMatchingSnapshot();
 });
 
-test("should retrieve user config info on package.json", () => {
+test("should retrieve user config info on package.json", async () => {
   const fakeConfig = new Config({
     config: false,
     plugins: {
@@ -47,12 +47,14 @@ test("should retrieve user config info on package.json", () => {
       },
     },
   });
-  expect(retrieveUserConfig(fakeConfig, "xpto")).toStrictEqual({ foo: "bar" });
+  await fakeConfig.init();
+  expect(await retrieveUserConfig(fakeConfig, "xpto")).toStrictEqual({ foo: "bar" });
 });
 
-test("should return null when package.json doesnt have any configs", () => {
+test("should return null when package.json doesnt have any configs", async () => {
   const fakeConfig = new Config({
     config: false,
   });
-  expect(retrieveUserConfig(fakeConfig, null)).toBeNull();
+  await fakeConfig.init();
+  expect(await retrieveUserConfig(fakeConfig, null)).toBeNull();
 });

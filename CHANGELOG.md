@@ -1,4 +1,17 @@
 
+[//]: # (s-4.0.0)
+
+# [4.0.0] - (2025-04-22)
+
+## Features
+* Adds support to release-it &gt;&#x3D; 19.
+
+## Misc
+* Update dependencies.
+
+[//]: # (e-4.0.0)
+
+
 [//]: # (s-3.1.1)
 
 # [3.1.1] - (2025-04-22)

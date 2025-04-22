@@ -8,6 +8,9 @@ on:
     branches:
       - "*"
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,26 +18,22 @@ jobs:
       fail-fast: false
       matrix:
         version: [20, 22]
-
     steps:
-      - uses: actions/checkout@v4
-      - name: Setup node ${{ matrix.version }}
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js ${{ matrix.version }}
         uses: actions/setup-node@v4
         with:
+          cache: npm
           node-version: ${{ matrix.version }}
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run lint
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run Lint
         run: npm run lint
-
-      - name: Build & Test
+      - name: Run Build & Test
         run: npm test
-
-      - uses: SonarSource/sonarcloud-github-action@master
-        continue-on-error: true
+      - uses: SonarSource/sonarqube-scan-action@v5
+        if: ${{ vars.SONAR_ENABLED == 'true' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}

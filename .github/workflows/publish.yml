@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - "*"
+
 permissions:
   contents: write
   packages: read
@@ -12,29 +13,35 @@ jobs:
   npm-publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 20.x
-      - run: npm install
-      - run: npm run lint
-      - run: npm test
-
-      - id: "publish"
+          cache: npm
+          node-version-file: .nvmrc
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run Lint
+        run: npm run lint
+      - name: Run Build & Test
+        run: npm test
+      - name: Publish to npmjs.org
+        id: publish
         uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
-
-      - if: ${{ steps.publish.outputs.type }}
+      - name: Check Version
+        if: ${{ steps.publish.outputs.type }}
         run: |
-          echo "Version changed: ${{ steps.publish.old-version }} => ${{ steps.publish.version }}"
-
-      - name: Get current tag
+          echo "Version changed: ${OLD_VERSION} => ${NEW_VERSION}"
+        env:
+          NEW_VERSION: ${{ steps.publish.version }}
+          OLD_VERSION: ${{ steps.publish.old-version }}
+      - name: Get Current Tag
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-
-      - name: Generate release changelog
+      - name: Generate Release Changelog
         run: ./src/cli/index.js preview -p $RELEASE_VERSION >> release.txt
-
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
